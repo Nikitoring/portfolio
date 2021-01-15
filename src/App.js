@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles/theme.scss'
+import React, { useState, useEffect } from 'react'
+
+import IntroComponent from './components/Intro'
+
+// import RoomComponent from './components/Room'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import rootReducer from './store/reducers'
+import {setScrollY, setReady} from './store/WindowStore/actions'
+
+const store = createStore(rootReducer)
 
 function App() {
+  const [scrollY] = useState(store.getState().scroll.scrollY)
+  const [hasScrolled, setHasScrolled] = useState(false)
+  const [horizonSpace] = useState('100vh')
+  useEffect(() => {
+    window.addEventListener('scroll', handleIndexScroll)
+    setTimeout(() => {
+      store.dispatch(setReady(true))
+    }, 3000);
+
+  })
+  const handleIndexScroll = () => {
+    const currentY = window.scrollY
+    setScrollY(currentY)
+    store.dispatch(setScrollY(currentY))
+    setHasScrolled(hasScrolled || window.scrollY > 15)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    <Provider store={store}>
+      <main>
+        <div className="app" style={{ '--scrollY': scrollY + 'px' }}>
+          <div className="horizont">
+          <IntroComponent hasScrolled={hasScrolled}/>
+          </div>
+        </div>
+        <div className="horizontSpace" style={{ '--marginTop': horizonSpace }}></div>
+      </main>
+    </Provider>
+  )
 }
 
-export default App;
+export default App

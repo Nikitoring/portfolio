@@ -1,0 +1,162 @@
+@import '../../styles//variabbles';
+
+.intro {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+
+  flex-shrink: 0;
+  @media (min-width: $lg) {
+    padding-left: 20rem;
+  }
+  @media (max-width: $xs-max) {
+    padding-left: 0;
+  }
+}
+
+.description {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  @media (min-width: $lg) {
+    width: 40%;
+  }
+  @media (max-width: $xs-max) {
+    width: 75%;
+  }
+  .title {
+    width: 100%;
+    color: $primary;
+    font-weight: bold;
+    mix-blend-mode: normal;
+    text-shadow: 10px 10px 4px rgba(31, 31, 31, 0.34);
+    &-char {
+      opacity: 0;
+      animation: laserOn 500ms steps(5) forwards;
+      /* 5 - $titleChars */
+      @for $i from 1 to 5 {
+        $titleTempo: 200ms;
+        &:nth-of-type(#{$i}) {
+          @if $i < 5 {
+            animation-delay: calc(#{$titleTempo} + 150ms * (#{$i} - 1));
+          } @else {
+            animation-delay: calc((#{$titleTempo}* 2) + 150ms * (#{$i} - 1));
+          }
+        }
+      }
+    }
+    @media (min-width: $lg) {
+      font-size: 242px;
+    }
+    @media (max-width: $xs-max) {
+      font-size: 130px;
+    }
+  }
+  .subtitle {
+    width: 100%;
+    color: rgba(31, 31, 31, 0.42);
+    font-weight: bold;
+    position: relative;
+    @media (min-width: $lg) {
+      bottom: 120px;
+      left: 9px;
+      font-size: 95px;
+    }
+    @media (max-width: $xs-max) {
+      bottom: 67px;
+      left: 4px;
+      font-size: 50px;
+    }
+  }
+}
+.sherlok {
+  background-image: url('../../assets/sherlok.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  background-size: contain;
+  @media (min-width: $lg) {
+    height: 100%;
+    width: 50%;
+  }
+  @media (max-width: $xs-max) {
+    height: 40%;
+    width: 18%;
+  }
+}
+@media (min-width: $lg) {
+  .tip {
+    font-size: 2.4rem;
+    text-decoration: underline;
+    position: absolute;
+    left: 99%;
+    transform: translateX(calc(-100% + var(--scrollY, 0px)));
+    animation: fadeIn 400ms 2.3s forwards ease-out;
+    color: $text;
+    white-space: nowrap;
+    visibility: visible;
+    &Text {
+      opacity: 0;
+      cursor: pointer;
+      // animation: fadeIn 400ms 2.3s forwards ease-out;
+      &.isActive {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 400ms ease-out;
+        .isHidden & {
+          transition: opacity 250ms ease-out;
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+    }
+  }
+}
+
+
+@keyframes laserOn {
+  0%,
+  85% {
+    opacity: 0;
+  }
+  87% {
+    opacity: 0.8;
+  }
+  88% {
+    opacity: 0.1;
+  }
+  89% {
+    opacity: 0.8;
+  }
+  92% {
+    opacity: 0.2;
+  }
+  94%,
+  100% {
+    opacity: 1;
+  }
+}
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 4s;
+  animation-duration: 4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes pulse {
+  from {color: $secondary; }
+  to {color: $accent; }
+}

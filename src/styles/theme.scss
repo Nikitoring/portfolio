@@ -1,0 +1,49 @@
+@import './variabbles';
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;500;700&display=swap');
+
+
+html {
+  margin: 0;
+  padding: 0;
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+  height: 100%;
+  overflow: hidden;
+  width: 100vw;
+  max-width: 100%;
+  background-color: $background;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  font-family: 'Teko', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  * { box-sizing: inherit; }
+}
+
+@media (min-width:$lg) {
+  main {
+    padding-top: 1px;
+  }
+  .app {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .horizont {
+    display: flex;
+    transform: translateX(calc(var(--scrollY) * -1));
+  }
+  .horizontSpace {
+    position: relative;
+    margin-top: var(--marginTop, 100vh);
+    height: 1px;
+  }
+}
