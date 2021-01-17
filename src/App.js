@@ -36,11 +36,11 @@ function App(props) {
               <Route exact path="/" component={IntroComponent} />
             </div>
           </div>
-          <div
+          {/* <div
             className="horizontSpace"
             style={{ '--marginTop': horizonSpace }}
-          ></div>
-          <Route path="/" component={RoomComponent} />
+          ></div> */}
+          <Route path="/room" component={RoomComponent} />
         </main>
       </Provider>
     </Router>
