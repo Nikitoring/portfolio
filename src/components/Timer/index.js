@@ -1,12 +1,15 @@
 import './timer.scss'
 import React, {useEffect, useState} from 'react'
+import {useDispatch } from 'react-redux'
 
 export default function TimerComponent(props) {
   const [m, setMinutes] = useState(0)
   const [s, setSeconds] = useState(0)
   const [ms, setMiliseconds] = useState(0)
-
+  // const storeInterval = useSelector(state => state.achives.timerInterval)
+  const dispatch = useDispatch()
   useEffect(()=> {
+
     let interval = null
     if (props.isActiveTimer) {
       interval = setInterval(()=> {
@@ -21,8 +24,9 @@ export default function TimerComponent(props) {
         setMiliseconds(ms => ms+1)
       }, 10);
     }
+    dispatch({type:'SET_TIMER', payload: interval})
     return () => clearInterval(interval);
-  },[props.isActiveTimer,m,s,ms])
+  },[dispatch,props.isActiveTimer,m,s,ms])
   return (
     <div className={`timer ${props.isActiveTimer ? 'isActive': ''}`}>
       <div className="time-block">

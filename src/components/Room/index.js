@@ -31,10 +31,7 @@ export default function RoomComponent(props) {
   }
   const closeRoom = (event) => {
     event.preventDefault()
-    console.log(props.history);
     props.history.goBack()
-    // props.history.push('/room')
-    // this.props.history.pop()
   }
   return (
     <section className={`page-section${classes}`}>
@@ -69,7 +66,6 @@ export default function RoomComponent(props) {
                 </Link>
               </div>
             </div>
-            {/* <img src="../../assets/room.svg"></img> */}
           </div>
         </div>
       </div>

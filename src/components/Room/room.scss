@@ -8,6 +8,8 @@
   height: 100vh;
   background-color: $background;
   // transform: translateX(100%);
+  animation: fadeIn;
+  animation-duration: 2s;
   transition: transform 1.33s ease-out;
   z-index: 5;
   overflow: hidden;
