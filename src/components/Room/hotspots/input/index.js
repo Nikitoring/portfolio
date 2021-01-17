@@ -2,20 +2,18 @@ import './inputHot.scss'
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 const InputHot = (props) => {
-  const [checked] = useState(props.isChecked)
+
   const hints = useSelector((state) => state.achives.hints)
   const dispatch = useDispatch()
   const setChecked = () => {
-    let newHints = [...hints]
-    newHints.map((item) => {
-      if (item.id === props.id) {
-        item.isChecked = !checked
-      }
-      return item
-    })
     dispatch({
       type: 'SET_HINTS',
-      payload: newHints,
+      payload: hints.map((item) => {
+        if (item.id === props.id) {
+          item.isChecked = !item.isChecked
+        }
+        return item
+      }),
     })
     console.log(hints)
   }
@@ -29,8 +27,8 @@ const InputHot = (props) => {
         className="input"
         id={props.id}
         name="inputs"
-        checked={checked}
-        onChange={() => setChecked(checked)}
+        checked={props.isChecked}
+        onChange={() => setChecked()}
       />
       <label htmlFor={props.id}>
         <div id={`b-${props.id}`} className="button">

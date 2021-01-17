@@ -1,0 +1,45 @@
+@import '../../../../styles/variabbles';
+
+.content {
+  top: 0;
+  left: 0;
+  z-index: 7;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color:$light;
+  transform-origin: center center;
+  border-radius: 8px;
+  @include transform(scale(0.000001, 0.00001));
+  @include transition(all 0.2s ease-in);
+  &.isActive {
+    @include transform(scale(0.5, 0.5));
+  }
+}
+.close-button {
+  color:$accent;
+  font-size: $font-heading_3;
+  top: 20px;
+  right: 20px;
+  position: absolute;
+  @include transition(opacity 0.2s ease-in);
+
+  &:hover {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+}
+.title {
+  margin-bottom: $spacer-M;
+  font-size: $font-heading_1;
+  color:$primary;
+}
+.body {
+  font-size: $font-heading_3;
+  color: $text;
+}

@@ -5,7 +5,7 @@ input {
 }
 
 @for $i from 1 through 10 {
-  #input#{$i}:checked ~ #content#{$i} {
+  #input#{$i}:checked {
     display: block !important;
     animation: fadein 0.5s;
   }
