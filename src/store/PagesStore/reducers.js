@@ -1,8 +1,9 @@
-import {SET_PAGE_SECTION, SET_CURRENT_PAGE_SECTION} from './actions.js'
+import {SET_PAGE_SECTION, SET_CURRENT_PAGE_SECTION, SET_ANIMATION} from './actions.js'
 
 const defaultState = {
+  isAnimation: false,
   pageSection: ['intro', 'room', 'contacts'],
-  pageCurrentSection: 'intro'
+  pageCurrentSection: false
 }
 
 export const pagesReducers = (state = defaultState, action) => {
@@ -16,6 +17,11 @@ export const pagesReducers = (state = defaultState, action) => {
       return{
         ...state,
         pageCurrentSection: action.payload
+      }
+    case SET_ANIMATION:
+      return{
+        ...state,
+        isAnimation: action.payload
       }
     default:
       break

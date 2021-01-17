@@ -1,0 +1,13 @@
+@import '../../styles//variabbles';
+
+.timer {
+  display: block;
+  font-size: $font-XL;
+  color: $primary;
+  opacity: 0;
+  visibility: hidden;
+  &.isActive {
+    opacity: 1;
+    visibility: visible;
+  }
+}

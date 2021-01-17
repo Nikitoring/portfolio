@@ -1,5 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import {setScrollY, setReady} from '../../store/WindowStore/actions'
+import {setAnimation, setCurrentPageSection} from '../../store/PagesStore/actions'
 import {connect} from 'react-redux'
 
 import './intro.scss'
@@ -8,12 +10,16 @@ import './intro.scss'
 const mapStateToProps= state => {
   return {
     scroll: state.scroll.scrollY,
-    isReady: state.scroll.isReady
+    isReady: state.scroll.isReady,
+    isAnimation: state.pages.isAnimation,
+    pageCurrentSection: state.pages.pageCurrentSection
   }
 }
 const mapDispatchToProps= {
   setScrollY,
-  setReady
+  setReady,
+  setAnimation,
+  setCurrentPageSection
 }
 
 class IntroComponent extends React.Component {
@@ -30,6 +36,21 @@ class IntroComponent extends React.Component {
       subTitle: 'who is here?',
     }
   }
+  togglePageHandler = (event) => {
+    event.preventDefault();
+    const  {pageCurrentSection} = this.props
+    this.props.setAnimation(true)
+    if (pageCurrentSection) {
+      document.body.classList.remove('openPage');
+    } else {
+      document.body.classList.add('openPage');
+    }
+    this.props.history.push('/room')
+    setTimeout(()=> {
+      this.props.setAnimation(false)
+      this.props.setCurrentPageSection(!pageCurrentSection)
+    },500)
+  }
 
   render() {
     return (
@@ -40,7 +61,7 @@ class IntroComponent extends React.Component {
         </div>
         <div className="sherlok fadeIn"></div>
         <div className={'tip '+ (this.props.isReady === false ? ' isHidden' : '')}>
-          <span  className={'tipText ' + (this.props.isReady === true ? ' isActive': '')}> Please, press me </span>
+          <Link to='/room' onClick={event => this.togglePageHandler(event)}  className={'tipText ' + (this.props.isReady === true ? ' isActive': '')}> Please, press me </Link>
         </div>
       </div>
     )

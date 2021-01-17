@@ -101,9 +101,9 @@
     visibility: visible;
     &Text {
       opacity: 0;
-      cursor: pointer;
-      // animation: fadeIn 400ms 2.3s forwards ease-out;
+      animation: fadeIn 400ms 2.3s forwards ease-out;
       &.isActive {
+        cursor: pointer;
         visibility: visible;
         opacity: 1;
         transition: opacity 400ms ease-out;
@@ -118,28 +118,6 @@
 }
 
 
-@keyframes laserOn {
-  0%,
-  85% {
-    opacity: 0;
-  }
-  87% {
-    opacity: 0.8;
-  }
-  88% {
-    opacity: 0.1;
-  }
-  89% {
-    opacity: 0.8;
-  }
-  92% {
-    opacity: 0.2;
-  }
-  94%,
-  100% {
-    opacity: 1;
-  }
-}
 .fadeIn {
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
@@ -147,16 +125,4 @@
   animation-duration: 4s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes pulse {
-  from {color: $secondary; }
-  to {color: $accent; }
 }

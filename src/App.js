@@ -1,17 +1,17 @@
 import './styles/theme.scss'
 import React, { useState, useEffect } from 'react'
-
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import IntroComponent from './components/Intro'
 
-// import RoomComponent from './components/Room'
+import RoomComponent from './components/Room'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import rootReducer from './store/reducers'
-import {setScrollY, setReady} from './store/WindowStore/actions'
+import { setScrollY, setReady } from './store/WindowStore/actions'
 
 const store = createStore(rootReducer)
 
-function App() {
+function App(props) {
   const [scrollY] = useState(store.getState().scroll.scrollY)
   const [hasScrolled, setHasScrolled] = useState(false)
   const [horizonSpace] = useState('100vh')
@@ -19,8 +19,7 @@ function App() {
     window.addEventListener('scroll', handleIndexScroll)
     setTimeout(() => {
       store.dispatch(setReady(true))
-    }, 3000);
-
+    }, 3000)
   })
   const handleIndexScroll = () => {
     const currentY = window.scrollY
@@ -29,17 +28,22 @@ function App() {
     setHasScrolled(hasScrolled || window.scrollY > 15)
   }
   return (
-
-    <Provider store={store}>
-      <main>
-        <div className="app" style={{ '--scrollY': scrollY + 'px' }}>
-          <div className="horizont">
-          <IntroComponent hasScrolled={hasScrolled}/>
+    <Router>
+      <Provider store={store}>
+        <main>
+          <div className="app" style={{ '--scrollY': scrollY + 'px' }}>
+            <div className="horizont">
+              <Route exact path="/" component={IntroComponent} />
+            </div>
           </div>
-        </div>
-        <div className="horizontSpace" style={{ '--marginTop': horizonSpace }}></div>
-      </main>
-    </Provider>
+          <div
+            className="horizontSpace"
+            style={{ '--marginTop': horizonSpace }}
+          ></div>
+          <Route path="/" component={RoomComponent} />
+        </main>
+      </Provider>
+    </Router>
   )
 }
 

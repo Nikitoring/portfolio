@@ -1,0 +1,67 @@
+@import '../../../../styles/variabbles';
+
+input {
+  display: none;
+}
+
+@for $i from 1 through 10 {
+  #input#{$i}:checked ~ #content#{$i} {
+    display: block !important;
+    animation: fadein 0.5s;
+  }
+}
+#b-1 {
+  position: absolute;
+  left: 70%;
+top: 85%;
+}
+#b-2 {
+  position: absolute;
+  left: 22%;
+  top: 51%;
+}
+#b-3 {
+  position: absolute;
+  left: 57%;
+  top: 51%;
+}
+#b-4 {
+  position: absolute;
+  left: 53%;
+  top: 14%;
+}
+#b-5 {
+  position: absolute;
+  left: 45%;
+top: 41%;
+}
+#b-6 {
+  position: absolute;
+  left: 57%;
+  top: 31%;
+}
+#b-7 {
+  position: absolute;
+  left: 28%;
+  top: 75%;
+}
+input:checked ~ label .button {
+  display: none !important;
+  animation: fadeout 0.5s;
+}
+
+.button {
+  color: white;
+  font-weight: bold;
+  background-color: $accent;
+  display: block;
+  padding: .5rem;
+  border-radius: 100%;
+  cursor: pointer;
+  animation: fadein 0.5s;
+  animation: pulse 1.5s infinite;
+  &:hover {
+    color: $primary;
+    background: $light;
+  }
+}
