@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import {setScrollY, setReady} from '../../store/WindowStore/actions'
+import {setReady} from '../../store/WindowStore/actions'
 import {setAnimation, setCurrentPageSection} from '../../store/PagesStore/actions'
 import {connect} from 'react-redux'
 
@@ -9,14 +9,12 @@ import './intro.scss'
 
 const mapStateToProps= state => {
   return {
-    scroll: state.scroll.scrollY,
     isReady: state.scroll.isReady,
     isAnimation: state.pages.isAnimation,
     pageCurrentSection: state.pages.pageCurrentSection
   }
 }
 const mapDispatchToProps= {
-  setScrollY,
   setReady,
   setAnimation,
   setCurrentPageSection

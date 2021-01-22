@@ -6,19 +6,27 @@ const HintContent = (props) => {
 
   useEffect(() => {
     if (props.isChecked) setStateDialog(true)
-  },[setStateDialog,props.isChecked])
+  }, [setStateDialog, props.isChecked])
   return (
-      <div id={`content-${props.id}`} className={`content ${stateDialog ? 'isActive' : ''}`}>
-        <div >
-          <span className="close-button" onClick={() => {setStateDialog(!stateDialog)}}>
-            X
-          </span>
+    <div
+      id={`content-${props.id}`}
+      className={`content ${stateDialog ? 'isActive' : ''}`}
+    >
+      <div>
+        <span
+          className="close-button"
+          onClick={() => {
+            setStateDialog(!stateDialog)
+          }}
+        >
+          X
+        </span>
+        <div className="modalContent">
+          <div className="hint-title">{props.title}</div>
+          <div className="hint-body">{props.body}</div>
         </div>
-        <div className="title">
-          {props.title}
-        </div>
-        <div className="body">{props.body}</div>
       </div>
+    </div>
   )
 }
 

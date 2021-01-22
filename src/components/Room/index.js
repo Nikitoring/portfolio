@@ -20,10 +20,9 @@ export default function RoomComponent(props) {
     setTimeout(()=> {
       let findHints = hints.filter(hint => hint.isChecked === true)
       if (findHints.length === hints.length) {
-        // return <Redirect to='/complete' />
         props.history.push('/complete')
       }
-    },5000)
+    },7000)
   })
   const startRoom = (event) => {
     event.preventDefault()
