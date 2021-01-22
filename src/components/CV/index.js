@@ -61,7 +61,7 @@ class CVComponent extends React.Component {
     return (
       <div className="cv-intro">
         <div className="cv-description">
-          <div className="cv-title">YOU FOUND ALL</div>{this.props.timer}
+          <div className="cv-title">YOU FOUND ALL</div>
           <div className="cv-subtitle">Your time: {this.state.time ? this.state.time : 'Ooops!'}</div>
         </div>
         <div className={`cv ${this.state.time ? 'isActive' : ''}`}>

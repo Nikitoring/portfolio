@@ -24,7 +24,7 @@ export default function TimerComponent(props) {
         setMiliseconds(ms => ms+1)
       }, 10);
     }
-    dispatch({type:'SET_TIMER', payload: interval})
+    dispatch({type:'SET_TIMER', payload: `${m < 10 ? '0'+ m : m } : ${s < 10 ? '0'+ s : s } : ${ms < 10 ? '0'+ ms : ms }`})
     return () => clearInterval(interval);
   },[dispatch,props.isActiveTimer,m,s,ms])
   return (
