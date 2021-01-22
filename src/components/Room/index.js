@@ -9,6 +9,7 @@ export default function RoomComponent(props) {
   const pageCurrentSection = useSelector(
     (store) => store.pages.pageCurrentSection,
   )
+  const hints = useSelector((state) => state.achives.hints)
   const [previewClasses, setPreview] = useState(' isActive')
   const [classesForRoom, setclassesForRoom] = useState('')
   const [isActiveTimer, setStateTimer] = useState(false)
@@ -16,11 +17,13 @@ export default function RoomComponent(props) {
     isAnimation ? ' isAnimating' : ''
   }`
   useEffect(() => {
-    // setTimeout(()=> {
-    //   if (pageCurrentSection && !isAnimation) {
-    //     setPreview(' isActive')
-    //   }
-    // },500)
+    setTimeout(()=> {
+      let findHints = hints.filter(hint => hint.isChecked === true)
+      if (findHints.length === hints.length) {
+        // return <Redirect to='/complete' />
+        props.history.push('/complete')
+      }
+    },5000)
   })
   const startRoom = (event) => {
     event.preventDefault()

@@ -1,5 +1,6 @@
 import './inputHot.scss'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+
 import { useSelector, useDispatch } from 'react-redux'
 const InputHot = (props) => {
 
@@ -15,11 +16,7 @@ const InputHot = (props) => {
         return item
       }),
     })
-    console.log(hints)
   }
-  useEffect(()=> {
-
-  })
   return (
     <div>
       <input

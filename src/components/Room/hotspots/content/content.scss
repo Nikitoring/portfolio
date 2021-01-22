@@ -18,6 +18,7 @@
   @include transform(scale(0.000001, 0.00001));
   @include transition(all 0.2s ease-in);
   &.isActive {
+    box-shadow: $shadow2;
     @include transform(scale(0.5, 0.5));
   }
 }

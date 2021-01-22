@@ -8,7 +8,6 @@ const HintContent = (props) => {
     if (props.isChecked) setStateDialog(true)
   },[setStateDialog,props.isChecked])
   return (
-    <div>
       <div id={`content-${props.id}`} className={`content ${stateDialog ? 'isActive' : ''}`}>
         <div >
           <span className="close-button" onClick={() => {setStateDialog(!stateDialog)}}>
@@ -20,7 +19,6 @@ const HintContent = (props) => {
         </div>
         <div className="body">{props.body}</div>
       </div>
-    </div>
   )
 }
 

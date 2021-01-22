@@ -2,6 +2,7 @@ import './styles/theme.scss'
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import IntroComponent from './components/Intro'
+import CVComponent from './components/CV'
 
 import RoomComponent from './components/Room'
 import { createStore } from 'redux'
@@ -41,6 +42,7 @@ function App(props) {
             style={{ '--marginTop': horizonSpace }}
           ></div> */}
           <Route path="/room" component={RoomComponent} />
+          <Route path="/complete" component={CVComponent} />
         </main>
       </Provider>
     </Router>

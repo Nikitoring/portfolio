@@ -80,7 +80,7 @@
         display: none;
         &.isActive {
           opacity: 1;
-          animation: pulse 1.5s ease-in-out 1.5s both;
+          // animation: pulse 1.5s ease-in-out 1.5s both;
           visibility: visible;
           display: block;
         }
