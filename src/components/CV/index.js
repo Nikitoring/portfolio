@@ -32,7 +32,7 @@ class CVComponent extends React.Component {
     return (
       <div className="cv-intro">
         <div className="cv-description">
-          <div className="cv-title">Mission {this.props.timer ? 'complited' : 'failed' }</div>
+          <div className="cv-title">Mission {this.props.timer ? 'complete' : 'failed' }</div>
           <div className="cv-subtitle">
             Your time: {this.props.timer ? this.props.timer : 'Ooops!'}
           </div>
