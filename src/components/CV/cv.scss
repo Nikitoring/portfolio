@@ -1,5 +1,5 @@
 @import '../../styles//variabbles';
-
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
 .cv-intro {
   display: flex;
   flex-direction: row;
@@ -9,11 +9,29 @@
   height: 100vh;
 
   flex-shrink: 0;
-  @media (min-width: $lg) {
-    padding-left: 5rem;
-  }
+  /* xs (<=543px) */
   @media (max-width: $xs-max) {
     padding-left: 0;
+  }
+
+  /* sm (>=576 и <=767) */
+  @media (min-width: $sm) and (max-width: $sm-max) {
+    padding-left: 1rem;
+  }
+
+  /* md (>=768 и <=991) */
+  @media (min-width: $md) and (max-width: $md-max) {
+    padding-left: 3rem;
+  }
+
+  /* lg (>=992 и <=1199) */
+  @media (min-width: $lg) and (max-width: $lg-max) {
+    padding-left: 3rem;
+  }
+
+  /* xl (>=1200) */
+  @media (min-width: $xl) {
+    padding-left: 10rem;
   }
 }
 
@@ -22,11 +40,27 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  @media (min-width: $lg) {
-    width: 40%;
-  }
+  /* xs (<=543px) */
   @media (max-width: $xs-max) {
     width: 75%;
+  }
+  /* sm (>=576 и <=767) */
+  @media (min-width: $sm) and (max-width: $sm-max) {
+    width: 75%;
+  }
+  /* md (>=768 и <=991) */
+  @media (min-width: $md) and (max-width: $md-max) {
+    width: 90%;
+  }
+
+  /* lg (>=992 и <=1199) */
+  @media (min-width: $lg) and (max-width: $lg-max) {
+    width: 40%;
+  }
+
+  /* xl (>=1200) */
+  @media (min-width: $xl) {
+    width: 40%;
   }
   .cv-title {
     width: 100%;
@@ -34,11 +68,29 @@
     font-weight: bold;
     mix-blend-mode: normal;
     text-shadow: 10px 10px 4px rgba(31, 31, 31, 0.34);
-    @media (min-width: $lg) {
-      font-size: 120px;
-    }
+
+    /* xs (<=543px) */
     @media (max-width: $xs-max) {
+      font-size: 25px;
+    }
+
+    /* sm (>=576 и <=767) */
+    @media (min-width: $sm) and (max-width: $sm-max) {
       font-size: 30px;
+    }
+
+    /* md (>=768 и <=991) */
+    @media (min-width: $md) and (max-width: $md-max) {
+      font-size: 35px;
+    }
+    /* lg (>=992 и <=1199) */
+    @media (min-width: $lg) and (max-width: $lg-max) {
+      font-size: 45px;
+    }
+
+    /* xl (>=1200) */
+    @media (min-width: $xl) {
+      font-size: 85px;
     }
   }
   .cv-subtitle {
@@ -46,26 +98,50 @@
     color: rgba(31, 31, 31, 0.42);
     font-weight: bold;
     position: relative;
-    @media (min-width: $lg) {
-      bottom: 55px;
-      left: 18px;
-      font-size: 50px;
-    }
+    /* xs (<=543px) */
     @media (max-width: $xs-max) {
-      bottom: 67px;
-      left: 4px;
-      font-size: 12px;
+      bottom: 0;
+      left: 5px;
+      font-size: $font-S;
+    }
+
+    /* sm (>=576 и <=767) */
+    @media (min-width: $sm) and (max-width: $sm-max) {
+      bottom: 0;
+      left: 0.1rem;
+      font-size: $font-L;
+    }
+
+    /* md (>=768 и <=991) */
+    @media (min-width: $md) and (max-width: $md-max) {
+      bottom: 10px;
+      left: 0;
+      font-size: $font-L;
+    }
+    /* lg (>=992 и <=1199) */
+    @media (min-width: $lg) and (max-width: $lg-max) {
+      bottom: 15px;
+      left: 0;
+      font-size: $font-XL;
+    }
+
+    /* xl (>=1200) */
+    @media (min-width: $xl) {
+      bottom: 35px;
+      left: .4rem;
+      font-size: $font-heading_3;
     }
   }
 }
 .cv {
   opacity: 0;
-  & .isActive {
+  &.isActive {
     opacity: 1;
     animation: fadeIn 4s;
   }
   .photoContainer {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     width: 100%;
     height: 100%;
@@ -75,59 +151,222 @@
       background-repeat: no-repeat;
       object-fit: cover;
       background-size: contain;
-      @media (min-width: $lg) {
+      /* xs (<=543px) */
+      @media (max-width: $xs-max) {
+        height: 30%;
+        width: 100%;
+        margin: 1rem 1rem 1rem 1rem;
+      }
+
+      /* sm (>=576 и <=767) */
+      @media (min-width: $sm) and (max-width: $sm-max) {
+        height: 40%;
+        width: 100%;
+        margin: 10rem 1rem 1rem 1rem;
+      }
+
+      /* md (>=768 и <=991) */
+      @media (min-width: $md) and (max-width: $md-max) {
+        height: 21%;
+        width: 100%;
+        margin: 1rem 1rem 1rem 1rem;
+      }
+      /* lg (>=992 и <=1199) */
+      @media (min-width: $lg) and (max-width: $lg-max) {
         height: 40%;
         width: 50%;
-        margin: 10rem 1rem;
+        margin: 10rem 1rem 1rem 1rem;
       }
-      @media (max-width: $xs-max) {
+
+      /* xl (>=1200) */
+      @media (min-width: $xl) {
         height: 40%;
+        width: 50%;
+        margin: 10rem 1rem 1rem 1rem;
       }
     }
     .name {
-      font-size: $font-heading_1;
-      height: 40%;
-width: 50%;
-margin: 10rem 1rem;
-display: flex;
-justify-content: center;
-align-items: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* xs (<=543px) */
+      @media (max-width: $xs-max) {
+        margin: 1rem 1rem 1rem 1rem;
+        font-size: $font-L;
+        display: block;
+        position: absolute;
+        top: 17rem;
+      }
+
+      /* sm (>=576 и <=767) */
+      @media (min-width: $sm) and (max-width: $sm-max) {
+        margin: 1rem 1rem 1rem 1rem;
+        font-size: $font-XL;
+        display: block;
+        position: absolute;
+        top: 12rem;
+        left: 52rem;
+      }
+
+      /* md (>=768 и <=991) */
+      @media (min-width: $md) and (max-width: $md-max) {
+        margin: 1rem 1rem 1rem 1rem;
+        font-size: $font-XL;
+        display: block;
+        position: absolute;
+        top: 25rem;
+      }
+      /* lg (>=992 и <=1199) */
+      @media (min-width: $lg) and (max-width: $lg-max) {
+        margin: 10rem 1rem 1rem 1rem;
+        font-size: $font-heading_2;
+        height: 40%;
+        width: 40%;
+      }
+
+      /* xl (>=1200) */
+      @media (min-width: $xl) {
+        margin: 10rem 1rem 1rem 1rem;
+        font-size: $font-heading_1;
+        height: 40%;
+        width: 40%;
+      }
     }
-  }
-  @media (min-width: $lg) {
-    height: 100%;
-    width: 50%;
-  }
-  @media (max-width: $xs-max) {
-    height: 40%;
-    width: 18%;
-  }
-}
-@media (min-width: $lg) {
-  .tip {
-    font-size: 2.4rem;
-    text-decoration: underline;
-    position: absolute;
-    left: 99%;
-    transform: translateX(calc(-100% + var(--scrollY, 0px)));
-    animation: fadeIn 400ms 2.3s forwards ease-out;
-    color: $text;
-    white-space: nowrap;
-    visibility: visible;
-    &Text {
-      opacity: 0;
-      animation: fadeIn 400ms 2.3s forwards ease-out;
-      &.isActive {
-        cursor: pointer;
-        visibility: visible;
-        opacity: 1;
-        transition: opacity 400ms ease-out;
-        .isHidden & {
-          transition: opacity 250ms ease-out;
-          opacity: 0;
-          visibility: hidden;
-        }
+    .cv-information {
+      width: 80%;
+      // font-family: 'Pangolin', cursive;
+      .cv-russia {
+        font-family: 'Pangolin', cursive;
+      }
+      /* xs (<=543px) */
+      @media (max-width: $xs-max) {
+        font-size: $font-S;
+        position: relative;
+        bottom: 20px;
+        left: 1rem;
+      }
+
+      /* sm (>=576 и <=767) */
+      @media (min-width: $sm) and (max-width: $sm-max) {
+        font-size: $font-M;
+        position: relative;
+        bottom: 10px;
+        left: 1rem;
+      }
+
+      /* md (>=768 и <=991) */
+      @media (min-width: $md) and (max-width: $md-max) {
+        font-size: $font-M;
+        position: relative;
+        bottom: 95px;
+        left: 1rem;
+      }
+      /* lg (>=992 и <=1199) */
+      @media (min-width: $lg) and (max-width: $lg-max) {
+        font-size: $font-M;
+        position: relative;
+        bottom: 45px;
+        left: 1rem;
+      }
+
+      /* xl (>=1200) */
+      @media (min-width: $xl) {
+        font-size: $font-L;
+        position: relative;
+        bottom: 80px;
+        left: 1rem;
       }
     }
   }
+
+  /* xs (<=543px) */
+  @media (max-width: $xs-max) {
+    height: 100%;
+    width: 60%;
+  }
+
+  /* sm (>=576 и <=767) */
+  @media (min-width: $sm) and (max-width: $sm-max) {
+    height: 100%;
+    width: 100%;
+  }
+
+  /* md (>=768 и <=991) */
+  @media (min-width: $md) and (max-width: $md-max) {
+    height: 100%;
+    width: 80%;
+  }
+  /* lg (>=992 и <=1199) */
+  @media (min-width: $lg) and (max-width: $lg-max) {
+    height: 100%;
+    width: 70%;
+  }
+
+  /* xl (>=1200) */
+  @media (min-width: $xl) {
+    height: 100%;
+    width: 50%;
+  }
 }
+$time:6s;
+.clearfix::after, .clearfix::before {
+  content: " ";
+	display: table;
+}
+
+.section-wrapper {
+  width:50%;
+  float:left;
+  text-align:left;
+  color:$secondary;
+  font-weight:300;
+  margin-bottom:20px;
+
+  &:nth-child(3){
+    padding-right:8%;
+  }
+  h3.section-title {
+    color:$text;
+    text-align:left;
+    text-transform:uppercase;
+    font-size:1.2em;
+    margin-bottom:20px;
+    font-weight:400;
+  }
+  .skill-percentage {
+    margin-bottom:10px;
+    position:relative;
+    &::after {
+      content:"";
+      width:100%;
+      height:6px;
+      background:$background-light;
+      opacity: .5;
+      display:block;
+      margin-top:3px;
+    }
+    &::before{
+      content:"";
+      height:6px;
+      background: $secondary;
+      position:absolute;
+      margin-top:3px;
+      bottom:0;
+    }
+    &:nth-child(1)::before {width:70%;animation: skill_1 $time ease;}
+    &:nth-child(2)::before {width:65%; animation: skill_2 $time ease;}
+    &:nth-child(3)::before {width:55%;animation: skill_3 $time ease;}
+    &:nth-child(4)::before {width:70%;animation: skill_4 $time ease;}
+    &:nth-child(5)::before {width:30%;animation: skill_5 $time ease;}
+    &:nth-child(6)::before {width:30%;animation: skill_6 $time ease;}
+    &:nth-child(7)::before {width:70%;animation: skill_6 $time ease;}
+  }
+}
+
+@keyframes skill_1 {from {width:0%;}to {width:70%;}}
+@keyframes skill_2 {from {width:0%;}to {width:65%;}}
+@keyframes skill_3 {from {width:0%;}to {width:55%;}}
+@keyframes skill_4 {from {width:0%;}to {width:70%;}}
+@keyframes skill_5 {from {width:0%;}to {width:30%;}}
+@keyframes skill_6 {from {width:0%;}to {width:30%;}}
+@keyframes skill_7 {from {width:0%;}to {width:70%;}}

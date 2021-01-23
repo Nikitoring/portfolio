@@ -23,7 +23,7 @@
     pointer-events: auto;
     @include transform(scale(1, 1));
   }
-  &>div {
+  & > div {
     width: 50vw;
     height: 50vh;
     position: absolute;
@@ -31,9 +31,9 @@
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 2em;
-    background-color:$light;
+    background-color: $light;
     border-radius: 8px;
-    box-shadow: $shadow2;
+    // box-shadow: $shadow2;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -48,13 +48,35 @@
   }
 }
 .close-button {
-  color:$accent;
-  font-size: $font-heading_3;
+  color: $accent;
+
   top: 20px;
   right: 20px;
   position: absolute;
   @include transition(opacity 0.2s ease-in);
+  /* xs (<=543px) */
+  @media (max-width: $xs-max) {
+    font-size: $font-XL;
+  }
 
+  /* sm (>=576 и <=767) */
+  @media (min-width: $sm) and (max-width: $sm-max) {
+    font-size: $font-XL;
+  }
+
+  /* md (>=768 и <=991) */
+  @media (min-width: $md) and (max-width: $md-max) {
+    font-size: $font-heading_3;
+  }
+  /* lg (>=992 и <=1199) */
+  @media (min-width: $lg) and (max-width: $lg-max) {
+    font-size: $font-heading_3;
+  }
+
+  /* xl (>=1200) */
+  @media (min-width: $xl) {
+    font-size: $font-heading_1;
+  }
   &:hover {
     opacity: 0.5;
     cursor: pointer;
@@ -63,13 +85,59 @@
 .hint-title {
   width: 100%;
   margin-bottom: $spacer-M;
-  font-size: $font-heading_1;
-  color:$primary;
+
+  color: $primary;
   text-align: center;
+  /* xs (<=543px) */
+  @media (max-width: $xs-max) {
+    font-size: $font-XL;
+  }
+
+  /* sm (>=576 и <=767) */
+  @media (min-width: $sm) and (max-width: $sm-max) {
+    font-size: $font-XL;
+  }
+
+  /* md (>=768 и <=991) */
+  @media (min-width: $md) and (max-width: $md-max) {
+    font-size: $font-heading_3;
+  }
+  /* lg (>=992 и <=1199) */
+  @media (min-width: $lg) and (max-width: $lg-max) {
+    font-size: $font-heading_3;
+  }
+
+  /* xl (>=1200) */
+  @media (min-width: $xl) {
+    font-size: $font-heading_1;
+  }
 }
 .hint-body {
   width: 100%;
-  font-size: $font-heading_3;
+
   color: $text;
   text-align: center;
+  /* xs (<=543px) */
+  @media (max-width: $xs-max) {
+    font-size: $font-S;
+  }
+
+  /* sm (>=576 и <=767) */
+  @media (min-width: $sm) and (max-width: $sm-max) {
+    font-size: $font-XL;
+  }
+
+  /* md (>=768 и <=991) */
+  @media (min-width: $md) and (max-width: $md-max) {
+    font-size: $font-XL;
+  }
+  /* lg (>=992 и <=1199) */
+  @media (min-width: $lg) and (max-width: $lg-max) {
+    font-size: $font-XL;
+  }
+
+  /* xl (>=1200) */
+  @media (min-width: $xl) {
+    font-size: $font-heading_3;
+  }
 }

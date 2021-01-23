@@ -26,50 +26,36 @@ const mapDispatchToProps = {
 class CVComponent extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      time: null,
-    }
-  }
-  converTimer = (time) => {
-    if (time && time > 0) {
-      let seconds = (time / 1000).toFixed(1)
-      let minutes = (time / (1000 * 60)).toFixed(1)
-      let hours = (time / (1000 * 60 * 60)).toFixed(1)
-      let days = (time / (1000 * 60 * 60 * 24)).toFixed(1)
-
-      if (seconds < 60) {
-        return seconds + ' Sec'
-      } else if (minutes < 60) {
-        return minutes + ' Min'
-      } else if (hours < 24) {
-        return hours + ' Hrs'
-      } else {
-        return days + ' Days'
-      }
-    } else {
-      return null
-    }
-
-  }
-  componentDidMount() {
-    this.setState({
-      time: this.converTimer(this.props.timer),
-    })
   }
 
   render() {
     return (
       <div className="cv-intro">
         <div className="cv-description">
-          <div className="cv-title">YOU FOUND ALL</div>
-          <div className="cv-subtitle">Your time: {this.state.time ? this.state.time : 'Ooops!'}</div>
+          <div className="cv-title">Mission complited</div>
+          <div className="cv-subtitle">
+            Your time: {this.props.timer ? this.props.timer : 'Ooops!'}
+          </div>
         </div>
-        <div className={`cv ${this.state.time ? 'isActive' : ''}`}>
+        <div className={`cv ${this.props.timer ? 'isActive' : ''}`}>
           <div className="photoContainer">
-            <div className="photo">
-
-            </div>
+            <div className="photo"></div>
             <div className="name"> Nikita Mavrychev </div>
+            <div className="cv-information">
+              <div className="cv-russia">В детстве был благовоспитанным мальчиком, но познакомился с
+              компьютерами и покатился... Вежлив, правдив, добр. Женат.</div>
+              <div class="section-wrapper">
+                <h3 class="section-title">Skills</h3>
+                <ul>
+                  <li class="skill-percentage">HTML / HTML5</li>
+                  <li class="skill-percentage">CSS / CSS3 / SASS / Bootstrap</li>
+                  <li class="skill-percentage">Javascript</li>
+                  <li class="skill-percentage">Vue</li>
+                  <li class="skill-percentage">Svelte</li>
+                  <li class="skill-percentage">React</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>

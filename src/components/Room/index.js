@@ -37,6 +37,7 @@ export default function RoomComponent(props) {
   }
   return (
     <section className={`page-section${classes}`}>
+      {/* <div id='light'></div> */}
       <div className="wrapper">
         <div className="cols">
           <div className={`room ${classesForRoom}`}>

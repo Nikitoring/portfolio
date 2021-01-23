@@ -29,10 +29,6 @@ function App(props) {
               <Route exact path="/" component={IntroComponent} />
             </div>
           </div>
-          {/* <div
-            className="horizontSpace"
-            style={{ '--marginTop': horizonSpace }}
-          ></div> */}
           <Route path="/room" component={RoomComponent} />
           <Route path="/complete" component={CVComponent} />
         </main>

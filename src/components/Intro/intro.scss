@@ -7,13 +7,31 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
-
   flex-shrink: 0;
-  @media (min-width: $lg) {
-    padding-left: 20rem;
-  }
+
+  /* xs (<=543px) */
   @media (max-width: $xs-max) {
     padding-left: 0;
+  }
+
+  /* sm (>=576 и <=767) */
+  @media (min-width: $sm) and (max-width: $sm-max) {
+    padding-left: 1rem;
+  }
+
+  /* md (>=768 и <=991) */
+  @media (min-width: $md) and (max-width: $md-max) {
+    padding-left: 5rem;
+  }
+
+  /* lg (>=992 и <=1199) */
+  @media (min-width: $lg) and (max-width: $lg-max) {
+    padding-left: 6rem;
+  }
+
+  /* xl (>=1200) */
+  @media (min-width: $xl) {
+    padding-left: 20rem;
   }
 }
 
@@ -22,12 +40,29 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  @media (min-width: $lg) {
-    width: 40%;
-  }
+  /* xs (<=543px) */
   @media (max-width: $xs-max) {
     width: 75%;
   }
+  /* sm (>=576 и <=767) */
+  @media (min-width: $sm) and (max-width: $sm-max) {
+    width: 75%;
+  }
+  /* md (>=768 и <=991) */
+  @media (min-width: $md) and (max-width: $md-max) {
+    width: 90%;
+  }
+
+  /* lg (>=992 и <=1199) */
+  @media (min-width: $lg) and (max-width: $lg-max) {
+    width: 40%;
+  }
+
+  /* xl (>=1200) */
+  @media (min-width: $xl) {
+    width: 40%;
+  }
+
   .title {
     width: 100%;
     color: $primary;
@@ -49,11 +84,29 @@
         }
       }
     }
-    @media (min-width: $lg) {
-      font-size: 242px;
-    }
+
+    /* xs (<=543px) */
     @media (max-width: $xs-max) {
       font-size: 130px;
+    }
+
+    /* sm (>=576 и <=767) */
+    @media (min-width: $sm) and (max-width: $sm-max) {
+      font-size: 130px;
+    }
+
+    /* md (>=768 и <=991) */
+    @media (min-width: $md) and (max-width: $md-max) {
+      font-size: 130px;
+    }
+    /* lg (>=992 и <=1199) */
+    @media (min-width: $lg) and (max-width: $lg-max) {
+      font-size: 195px;
+    }
+
+    /* xl (>=1200) */
+    @media (min-width: $xl) {
+      font-size: 242px;
     }
   }
   .subtitle {
@@ -61,15 +114,39 @@
     color: rgba(31, 31, 31, 0.42);
     font-weight: bold;
     position: relative;
-    @media (min-width: $lg) {
+
+    /* xs (<=543px) */
+    @media (max-width: $xs-max) {
+      font-size: 50px;
+      bottom: 65px;
+      left: 5px;
+    }
+
+    /* sm (>=576 и <=767) */
+    @media (min-width: $sm) and (max-width: $sm-max) {
+      font-size: 50px;
+      bottom: 65px;
+      left: 5px;
+    }
+
+    /* md (>=768 и <=991) */
+    @media (min-width: $md) and (max-width: $md-max) {
+      font-size: 51px;
+      bottom: 65px;
+      left: 5px;
+    }
+    /* lg (>=992 и <=1199) */
+    @media (min-width: $lg) and (max-width: $lg-max) {
+      bottom: 100px;
+      left: 9px;
+      font-size: 75px;
+    }
+
+    /* xl (>=1200) */
+    @media (min-width: $xl) {
       bottom: 120px;
       left: 9px;
       font-size: 95px;
-    }
-    @media (max-width: $xs-max) {
-      bottom: 67px;
-      left: 4px;
-      font-size: 50px;
     }
   }
 }
@@ -79,44 +156,96 @@
   background-repeat: no-repeat;
   object-fit: cover;
   background-size: contain;
-  @media (min-width: $lg) {
+  /* xs (<=543px) */
+  @media (max-width: $xs-max) {
+    height: 100%;
+    width: 18%;
+  }
+
+  /* sm (>=576 и <=767) */
+  @media (min-width: $sm) and (max-width: $sm-max) {
+    height: 100%;
+    width: 100%;
+  }
+
+  /* md (>=768 и <=991) */
+  @media (min-width: $md) and (max-width: $md-max) {
+    height: 60%;
+    width: 100%;
+  }
+  /* lg (>=992 и <=1199) */
+  @media (min-width: $lg) and (max-width: $lg-max) {
     height: 100%;
     width: 50%;
   }
-  @media (max-width: $xs-max) {
-    height: 40%;
-    width: 18%;
-  }
-}
-@media (min-width: $lg) {
-  .tip {
-    font-size: 2.4rem;
-    text-decoration: underline;
-    position: absolute;
-    left: 99%;
-    transform: translateX(calc(-100% + var(--scrollY, 0px)));
-    animation: fadeIn 400ms 2.3s forwards ease-out;
-    color: $text;
-    white-space: nowrap;
-    visibility: visible;
-    &Text {
-      opacity: 0;
-      animation: fadeIn 400ms 2.3s forwards ease-out;
-      &.isActive {
-        cursor: pointer;
-        visibility: visible;
-        opacity: 1;
-        transition: opacity 400ms ease-out;
-        .isHidden & {
-          transition: opacity 250ms ease-out;
-          opacity: 0;
-          visibility: hidden;
-        }
-      }
-    }
+
+  /* xl (>=1200) */
+  @media (min-width: $xl) {
+    height: 100%;
+    width: 50%;
   }
 }
 
+.tip {
+  text-decoration: underline;
+
+  animation: fadeIn 400ms 2.3s forwards ease-out;
+  color: $text;
+  white-space: nowrap;
+  visibility: visible;
+  &Text {
+    opacity: 0;
+    animation: fadeIn 400ms 4s forwards ease-out;
+    &.isActive {
+      cursor: pointer;
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 400ms ease-out;
+      .isHidden & {
+        transition: opacity 250ms ease-out;
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  }
+  /* xs (<=543px) */
+  @media (max-width: $xs-max) {
+    position: absolute;
+    left: 30%;
+    bottom: 15rem;
+    font-size: 3.4rem;
+  }
+
+  /* sm (>=576 и <=767) */
+  @media (min-width: $sm) and (max-width: $sm-max) {
+    position: absolute;
+    left: 3%;
+    bottom: 8rem;
+    font-size: 2.4rem;
+  }
+
+  /* md (>=768 и <=991) */
+  @media (min-width: $md) and (max-width: $md-max) {
+    position: absolute;
+    left: 8%;
+    top: 60rem;
+    font-size: 3.4rem;
+  }
+  /* lg (>=992 и <=1199) */
+  @media (min-width: $lg) and (max-width: $lg-max) {
+    position: absolute;
+    left: 90%;
+    bottom: 40rem;
+    font-size: 3.4rem;
+  }
+
+  /* xl (>=1200) */
+  @media (min-width: $xl) {
+    position: absolute;
+    left: 90%;
+    font-size: 2.4rem;
+  }
+}
 
 .fadeIn {
   -webkit-animation-name: fadeIn;
