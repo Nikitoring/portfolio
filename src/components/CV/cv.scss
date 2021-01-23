@@ -234,8 +234,11 @@
     }
     .cv-information {
       width: 80%;
-      // font-family: 'Pangolin', cursive;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
       .cv-russia {
+        width: 100%;
         font-family: 'Pangolin', cursive;
       }
       /* xs (<=543px) */
@@ -320,9 +323,9 @@ $time:6s;
   text-align:left;
   color:$secondary;
   font-weight:300;
-  margin-bottom:20px;
+  margin-bottom:2rem;
 
-  &:nth-child(3){
+  &:nth-child(2n){
     padding-right:8%;
   }
   h3.section-title {
@@ -358,8 +361,65 @@ $time:6s;
     &:nth-child(3)::before {width:55%;animation: skill_3 $time ease;}
     &:nth-child(4)::before {width:70%;animation: skill_4 $time ease;}
     &:nth-child(5)::before {width:30%;animation: skill_5 $time ease;}
-    &:nth-child(6)::before {width:30%;animation: skill_6 $time ease;}
+    &:nth-child(6)::before {width:20%;animation: skill_6 $time ease;}
     &:nth-child(7)::before {width:70%;animation: skill_6 $time ease;}
+  }
+  .contact-item {
+    margin-bottom:1rem;
+    position:relative;
+    a {
+      color: $primary;
+      display: flex;
+      margin-bottom: 1rem;
+      justify-content: start;
+      align-items: center;
+      &.git {
+        &::before {
+          content: " ";
+          background: url("../../assets/icons/github.png") no-repeat center;
+          background-size: contain;
+          width: 32px;
+          height: 32px;
+          display:inline-block;
+          margin-right: 1rem;
+        }
+      }
+      &.linked {
+        &::before {
+          content: " ";
+          background: url("../../assets/icons/linkedin.png") no-repeat center;
+          background-size: contain;
+          width: 32px;
+          height: 32px;
+          display:inline-block;
+          margin-right: 1rem;
+        }
+
+      }
+      &.telegram {
+        &::before {
+          content: " ";
+          background: url("../../assets/icons/telegram.png") no-repeat center;
+          background-size: contain;
+          width: 32px;
+          height: 32px;
+          display:inline-block;
+          margin-right: 1rem;
+        }
+      }
+      &.mail {
+        &::before {
+          content: " ";
+          background: url("../../assets/icons/gmail.png") no-repeat center;
+          background-size: contain;
+          width: 32px;
+          height: 32px;
+          display:inline-block;
+          margin-right: 1rem;
+        }
+      }
+    }
+
   }
 }
 
@@ -367,6 +427,6 @@ $time:6s;
 @keyframes skill_2 {from {width:0%;}to {width:65%;}}
 @keyframes skill_3 {from {width:0%;}to {width:55%;}}
 @keyframes skill_4 {from {width:0%;}to {width:70%;}}
-@keyframes skill_5 {from {width:0%;}to {width:30%;}}
-@keyframes skill_6 {from {width:0%;}to {width:30%;}}
+@keyframes skill_5 {from {width:0%;}to {width:20%;}}
+@keyframes skill_6 {from {width:0%;}to {width:10%;}}
 @keyframes skill_7 {from {width:0%;}to {width:70%;}}

@@ -8,8 +8,8 @@ const defaultState = {
       label: '',
       isChecked: false,
       content: {
-        title: 'The cat. Hmmm... ',
-        body: 'All cats are lazy, but they are Svelte!'
+        title: 'A cat. Hmmm...',
+        body: 'Cats are lazy, but they are Svelte'
       }
     },
     {
@@ -17,8 +17,8 @@ const defaultState = {
       label: '',
       isChecked: false,
       content: {
-        title: "I'm watching beatiful view from window",
-        body: "View... View... VUE!"
+        title: "I see a beautiful view from the window",
+        body: "View... View... Vue"
       }
     },
     {
@@ -26,8 +26,8 @@ const defaultState = {
       label: '',
       isChecked: false,
       content: {
-        title: 'The cup. There was cofee',
-        body: 'Need more cofee. Everything is clear'
+        title: 'A cup. There was some coffee in it',
+        body: 'Need more cofee'
       }
     },
     {
@@ -36,7 +36,7 @@ const defaultState = {
       isChecked: false,
       content: {
         title: 'HTML',
-        body: 'What He knows about HTML?'
+        body: 'What does he know about HTML?'
       }
     },
     {
@@ -44,8 +44,8 @@ const defaultState = {
       label: '',
       isChecked: false,
       content: {
-        title: 'Ok. There is open Visual Studio Code',
-        body: 'Code was write on JavaScript. Operating system is Linux'
+        title: 'Visual Studio Code',
+        body: 'Programming language is JavaScript. Operating system is Linux'
       }
     },
     {
@@ -53,8 +53,8 @@ const defaultState = {
       label: '',
       isChecked: false,
       content: {
-        title: '{} ? Css',
-        body: 'Ooo! Css and Scss'
+        title: '{} Css',
+        body: 'Css / SASS'
       }
     },
     {
@@ -62,7 +62,7 @@ const defaultState = {
       label: '',
       isChecked: false,
       content: {
-        title: 'The plant',
+        title: 'A plant',
         body: 'The plant is growing up'
       }
     }

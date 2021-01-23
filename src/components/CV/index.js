@@ -32,7 +32,7 @@ class CVComponent extends React.Component {
     return (
       <div className="cv-intro">
         <div className="cv-description">
-          <div className="cv-title">Mission complited</div>
+          <div className="cv-title">Mission {this.props.timer ? 'complited' : 'failed' }</div>
           <div className="cv-subtitle">
             Your time: {this.props.timer ? this.props.timer : 'Ooops!'}
           </div>
@@ -44,15 +44,24 @@ class CVComponent extends React.Component {
             <div className="cv-information">
               <div className="cv-russia">В детстве был благовоспитанным мальчиком, но познакомился с
               компьютерами и покатился... Вежлив, правдив, добр. Женат.</div>
-              <div class="section-wrapper">
-                <h3 class="section-title">Skills</h3>
+              <div className="section-wrapper clearfix">
+                <h3 className="section-title">Skills</h3>
                 <ul>
-                  <li class="skill-percentage">HTML / HTML5</li>
-                  <li class="skill-percentage">CSS / CSS3 / SASS / Bootstrap</li>
-                  <li class="skill-percentage">Javascript</li>
-                  <li class="skill-percentage">Vue</li>
-                  <li class="skill-percentage">Svelte</li>
-                  <li class="skill-percentage">React</li>
+                  <li className="skill-percentage">HTML / HTML5</li>
+                  <li className="skill-percentage">CSS / CSS3 / SASS / Bootstrap</li>
+                  <li className="skill-percentage">Javascript</li>
+                  <li className="skill-percentage">Vue</li>
+                  <li className="skill-percentage">Svelte</li>
+                  <li className="skill-percentage">React</li>
+                </ul>
+              </div>
+              <div className="section-wrapper clearfix">
+                <h3 className="section-title">Contacts</h3>
+                <ul>
+                  <li className="contact-item"><a className="contact-item git" href="https://github.com/Nikitoring">github</a></li>
+                  <li className="contact-item"><a className="contact-item linked" href="https://www.linkedin.com/in/nikita-mavrychev-61a3b91bb/">LinkedIn</a></li>
+                  <li className="contact-item"><a className="contact-item telegram" href="https://t.me/Nikitoring">telegram</a></li>
+                  <li className="contact-item"><a className="contact-item mail" href="mailto:nikitoring88@gmail.com">nikitoring88@gmail.com</a></li>
                 </ul>
               </div>
             </div>
