@@ -1,0 +1,111 @@
+@import '../../../../../styles/variabbles';
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+.forTerminal {
+  padding: 0 !important;
+}
+
+.terminal {
+  width: 100%;
+  height: 100%;
+  .terminal-bar {
+    background: linear-gradient(#504b45 0%,#3c3b37 100%);
+    width: 100%;
+    padding: 0 8px;
+    box-sizing: border-box;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+  }
+  .terminal-buttons {
+    display: flex;
+    align-items: center;
+    .termina-btn {
+      width: 12px;
+      height: 12px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100%;
+      padding: 0;
+      font-size: 7px;
+      background: linear-gradient(#7d7871 0%, #595953 100%);
+      text-shadow: 0px 1px 0px rgba(255,255,255,0.2);
+      box-shadow: 0px 0px 1px 0px #41403A,0px 1px 1px 0px #474642;
+      border: none;
+      margin-right: 4px;
+      &.exit {
+        background: #f25d2b;
+        background: linear-gradient(#f37458 0%, #de4c12 100%);
+        background-clip: padding-box;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .terminal-bar-user {
+    color: #d5d0ce;
+    margin-left: .4rem;
+    font-size: $spacer-M;
+    line-height: 14px;
+  }
+  .terminal-body {
+    background: rgba(56, 4, 40, .9);
+    height: calc(100% - 25px);
+    margin-top: -1px;
+    padding: 5px 9px;
+    font-family: 'Ubuntu mono';
+    .terminal-text {
+      color: #ddd;
+      font-size: $spacer-M;
+    }
+    .terminal-text-info {
+      color: #ddd;
+      font-size: $spacer-M;
+      animation: type 1s 4.25s steps(50, end) forwards;
+    }
+    .terminal-text-question, .terminal-text-variant {
+      font-size: $spacer-M;
+      color: #6d85a9;
+    }
+    .terminal-propmpt {
+      margin-top: 1rem;
+      font-size: $spacer-M;
+      display: flex;
+      align-items: center;
+      .propmpt-user {
+        color: #87d441;
+      }
+      .propmpt-dollar {
+        color: #ddd;
+      }
+      .propmpt-tilda {
+        color: #6d85a9;
+      }
+      .propmpt-input {
+        appearance: none;
+        display: block;
+        width: 100%;
+        height: 1.2rem;
+        font-size: $spacer-M;
+        letter-spacing: 0;
+        padding: 0 0.5rem;
+        border: none;
+        background: none;
+        color: #ddd;
+        :focus {
+          animation: pulseAttention .5s cubic-bezier(.215, .61, .355, 1) forwards infinite;
+
+        }
+      }
+
+    }
+  }
+}
+

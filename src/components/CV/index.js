@@ -37,7 +37,7 @@ class CVComponent extends React.Component {
             Your time: {this.props.timer ? this.props.timer : 'Ooops!'}
           </div>
         </div>
-        <div className={`cv ${this.props.timer ? 'isActive' : ''}`}>
+        {this.props.timer && <div className={`cv isActive`}>
           <div className="photoContainer">
             <div className="photo"></div>
             <div className="name"> Nikita Mavrychev </div>
@@ -66,7 +66,15 @@ class CVComponent extends React.Component {
               </div>
             </div>
           </div>
-        </div>
+        </div>}
+        {!this.props.timer && <div className={`cv isFake`}>
+        <div className="photoContainer">
+            <div className="fakeInformation">
+
+            </div>
+          </div>
+        </div>}
+
       </div>
     )
   }

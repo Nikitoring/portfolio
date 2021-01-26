@@ -139,6 +139,10 @@
     opacity: 1;
     animation: fadeIn 4s;
   }
+  &.isFake {
+    opacity: 1;
+    animation: fadeIn 4s;
+  }
   .photoContainer {
     display: flex;
     flex-wrap: wrap;
@@ -160,82 +164,73 @@
 
       /* sm (>=576 и <=767) */
       @media (min-width: $sm) and (max-width: $sm-max) {
-        height: 40%;
+        height: 30%;
         width: 100%;
         margin: 10rem 1rem 1rem 1rem;
       }
 
       /* md (>=768 и <=991) */
       @media (min-width: $md) and (max-width: $md-max) {
-        height: 21%;
+        height: 30%;
         width: 100%;
         margin: 1rem 1rem 1rem 1rem;
       }
       /* lg (>=992 и <=1199) */
       @media (min-width: $lg) and (max-width: $lg-max) {
-        height: 40%;
+        height: 30%;
         width: 50%;
-        margin: 10rem 1rem 1rem 1rem;
+        margin: 5rem 1rem 1rem 1rem;
       }
 
       /* xl (>=1200) */
       @media (min-width: $xl) {
-        height: 40%;
-        width: 50%;
-        margin: 10rem 1rem 1rem 1rem;
+        min-width: 40%;
+        margin: 5rem 1rem 1rem 1rem;
       }
     }
     .name {
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       /* xs (<=543px) */
       @media (max-width: $xs-max) {
         margin: 1rem 1rem 1rem 1rem;
         font-size: $font-L;
-        display: block;
-        position: absolute;
-        top: 17rem;
+        width: 100%;
       }
 
       /* sm (>=576 и <=767) */
       @media (min-width: $sm) and (max-width: $sm-max) {
         margin: 1rem 1rem 1rem 1rem;
         font-size: $font-XL;
-        display: block;
-        position: absolute;
-        top: 12rem;
-        left: 52rem;
+        width: 100%;
       }
 
       /* md (>=768 и <=991) */
       @media (min-width: $md) and (max-width: $md-max) {
+        width: 100%;
         margin: 1rem 1rem 1rem 1rem;
         font-size: $font-XL;
-        display: block;
-        position: absolute;
-        top: 25rem;
       }
       /* lg (>=992 и <=1199) */
       @media (min-width: $lg) and (max-width: $lg-max) {
-        margin: 10rem 1rem 1rem 1rem;
+        width: 100%;
+        margin: 2rem 1rem 1rem 1rem;
         font-size: $font-heading_2;
-        height: 40%;
-        width: 40%;
       }
 
       /* xl (>=1200) */
       @media (min-width: $xl) {
-        margin: 10rem 1rem 1rem 1rem;
+        width: 50%;
+        margin: 5rem 1rem 1rem 1rem;
         font-size: $font-heading_1;
-        height: 40%;
-        width: 40%;
       }
     }
     .cv-information {
       width: 80%;
       display: flex;
       flex-direction: row;
+      justify-content: flex-start;
       flex-wrap: wrap;
       .cv-russia {
         width: 100%;
@@ -244,41 +239,51 @@
       /* xs (<=543px) */
       @media (max-width: $xs-max) {
         font-size: $font-S;
-        position: relative;
-        bottom: 20px;
-        left: 1rem;
+        // position: relative;
+        // bottom: 20px;
+        // left: 1rem;
       }
 
       /* sm (>=576 и <=767) */
       @media (min-width: $sm) and (max-width: $sm-max) {
         font-size: $font-M;
-        position: relative;
-        bottom: 10px;
-        left: 1rem;
+        // position: relative;
+        // bottom: 10px;
+        // left: 1rem;
       }
 
       /* md (>=768 и <=991) */
       @media (min-width: $md) and (max-width: $md-max) {
         font-size: $font-M;
-        position: relative;
-        bottom: 95px;
-        left: 1rem;
+        // position: relative;
+        // bottom: 95px;
+        // left: 1rem;
       }
       /* lg (>=992 и <=1199) */
       @media (min-width: $lg) and (max-width: $lg-max) {
         font-size: $font-M;
-        position: relative;
-        bottom: 45px;
-        left: 1rem;
+        // position: relative;
+        // bottom: 45px;
+        // left: 1rem;
       }
 
       /* xl (>=1200) */
       @media (min-width: $xl) {
         font-size: $font-L;
-        position: relative;
-        bottom: 80px;
-        left: 1rem;
+        // position: relative;
+        // bottom: 80px;
+        // left: 1rem;
       }
+    }
+    .fakeInformation {
+      animation: fadeIn 4s;
+      background-image: url('../../assets/who3.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      object-fit: cover;
+      background-size: contain;
+      width: 100%;
+      height: 100%;
     }
   }
 
@@ -371,7 +376,7 @@ $time:6s;
       color: $primary;
       display: flex;
       margin-bottom: 1rem;
-      justify-content: start;
+      justify-content: flex-start;
       align-items: center;
       &.git {
         &::before {

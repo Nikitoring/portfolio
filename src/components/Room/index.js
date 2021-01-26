@@ -1,7 +1,7 @@
 import './room.scss'
 import { Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import TimerComponent from '../Timer'
 import Hotspots from './hotspots'
 export default function RoomComponent(props) {
@@ -10,6 +10,7 @@ export default function RoomComponent(props) {
     (store) => store.pages.pageCurrentSection,
   )
   const hints = useSelector((state) => state.achives.hints)
+  const dispatch = useDispatch()
   const [previewClasses, setPreview] = useState(' isActive')
   const [classesForRoom, setclassesForRoom] = useState('')
   const [isActiveTimer, setStateTimer] = useState(false)
@@ -17,23 +18,50 @@ export default function RoomComponent(props) {
     isAnimation ? ' isAnimating' : ''
   }`
   useEffect(() => {
-    setTimeout(()=> {
-      let findHints = hints.filter(hint => hint.isChecked === true)
+      let findHints = hints.filter(hint => hint.isFound === true)
+
       if (findHints.length === hints.length) {
-        props.history.push('/complete')
+        dispatch({
+          type: 'SET_HINTS',
+          payload: hints.map((item) => {
+            item.isFound = !item.isFound
+            item.isChecked = !item.isChecked
+            return item
+          })
+        })
+        setTimeout(()=>{
+          props.history.push('/complete')}
+        ,3000)
       }
-    },7000)
-  })
+  },[dispatch,props.history,hints])
   const startRoom = (event) => {
     event.preventDefault()
     setPreview('isHidden')
     document.getElementsByClassName('preview')[0].classList.remove('isActive')
     setclassesForRoom(' isActive')
     setStateTimer(true)
+    dispatch({
+      type: 'SET_HINTS',
+      payload: hints.map((item) => {
+        item.isFound = false
+        item.isChecked = false
+        return item
+      })
+    })
   }
   const closeRoom = (event) => {
     event.preventDefault()
     props.history.goBack()
+    dispatch({
+      type: 'SET_HINTS',
+      payload: hints.map((item) => {
+        item.isFound = false
+        item.isChecked = false
+        return item
+      }),
+      type: 'SET_TIMER',
+      payload: false
+    })
   }
   return (
     <section className={`page-section${classes}`}>
@@ -48,7 +76,7 @@ export default function RoomComponent(props) {
                   to="/"
                   className="closeBtn"
                   onClick={(event) => closeRoom(event)}
-                >x</Link>
+                >&#10005;</Link>
             </div>
             <div className={`roomContainer ${isActiveTimer ? 'isShow' : ''}`}>
             <Hotspots  isActive={isActiveTimer}/>

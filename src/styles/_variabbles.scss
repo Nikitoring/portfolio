@@ -138,3 +138,32 @@ $shadow2 : 10px 30px 200px rgba(0, 0, 0, 0.7), 0 10px 15px rgba(0, 0, 0, 0.23);
             animation-timing-function: ease-out;
   }
 }
+@keyframes pulseAttention {
+  50% {
+      border-color:  #ddd;
+  }
+}
+
+@-webkit-keyframes type {
+  to {
+    width: 100%;
+  }
+}
+
+@-moz-keyframes type {
+  to {
+    width: 100%;
+  }
+}
+
+@-o-keyframes type {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes type {
+  to {
+    width: 100%;
+  }
+}

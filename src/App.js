@@ -1,38 +1,35 @@
 import './styles/theme.scss'
 import React, { useEffect } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { HashRouter as Router, Route } from 'react-router-dom'
 import IntroComponent from './components/Intro'
 import CVComponent from './components/CV'
 
 import RoomComponent from './components/Room'
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
-import rootReducer from './store/reducers'
-import { setReady } from './store/WindowStore/actions'
+import { useDispatch } from 'react-redux'
 
-const store = createStore(rootReducer)
 
 function App(props) {
-
+  const dispatch = useDispatch()
   useEffect(() => {
 
     setTimeout(() => {
-      store.dispatch(setReady(true))
+      dispatch({
+        type:'IS_REARY',
+        payload: true
+      })
     }, 3000)
-  }, [])
+  },[dispatch])
   return (
     <Router>
-      <Provider store={store}>
-        <main>
-          <div className="app">
-            <div className="horizont">
-              <Route exact path="/" component={IntroComponent} />
-            </div>
+      <main>
+        <div className="app">
+          <div className="horizont">
+            <Route exact path="/" component={IntroComponent} />
           </div>
-          <Route path="/room" component={RoomComponent} />
-          <Route path="/complete" component={CVComponent} />
-        </main>
-      </Provider>
+        </div>
+        <Route path="/room" component={RoomComponent} />
+        <Route path="/complete" component={CVComponent} />
+      </main>
     </Router>
   )
 }
