@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import TimerComponent from '../Timer'
+import HealthComponent from '../Health'
 import Hotspots from './hotspots'
 export default function RoomComponent(props) {
   const isAnimation = useSelector((store) => store.pages.isAnimation)
@@ -10,6 +11,7 @@ export default function RoomComponent(props) {
     (store) => store.pages.pageCurrentSection,
   )
   const hints = useSelector((state) => state.achives.hints)
+  const health = useSelector((state) => state.health.health)
   const dispatch = useDispatch()
   const [previewClasses, setPreview] = useState(' isActive')
   const [classesForRoom, setclassesForRoom] = useState('')
@@ -33,7 +35,24 @@ export default function RoomComponent(props) {
           props.history.push('/complete')}
         ,3000)
       }
-  },[dispatch,props.history,hints])
+      if (health === 3) {
+        dispatch({
+          type: 'SET_HINTS',
+          payload: hints.map((item) => {
+            item.isFound = false
+            item.isChecked = false
+            return item
+          }),
+        })
+        dispatch({
+          type: 'SET_TIMER',
+          payload: null
+        })
+        setTimeout(()=>{
+          props.history.push('/complete')}
+        ,3000)
+      }
+  },[dispatch,props.history,hints, health])
   const startRoom = (event) => {
     event.preventDefault()
     setPreview('isHidden')
@@ -59,8 +78,14 @@ export default function RoomComponent(props) {
         item.isChecked = false
         return item
       }),
+    })
+    dispatch({
       type: 'SET_TIMER',
-      payload: false
+      payload: null
+    })
+    dispatch({
+      type: 'SET_MISTAKE',
+      payload: 0
     })
   }
   return (
@@ -72,12 +97,14 @@ export default function RoomComponent(props) {
 
             <div className={`headerContainer ${isActiveTimer ? 'isShow' : ''}`}>
               <TimerComponent isActiveTimer={isActiveTimer} />
+
               <Link
                   to="/"
                   className="closeBtn"
                   onClick={(event) => closeRoom(event)}
                 >&#10005;</Link>
             </div>
+            {isActiveTimer && <HealthComponent />}
             <div className={`roomContainer ${isActiveTimer ? 'isShow' : ''}`}>
             <Hotspots  isActive={isActiveTimer}/>
             </div>

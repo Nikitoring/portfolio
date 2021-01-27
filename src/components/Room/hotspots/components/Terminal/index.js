@@ -8,47 +8,82 @@ const TerminalComponent = (props) => {
   const [answer, setAnswer] = useState('') // Answer who invented
   const [complete, setcomplete] = useState(false) // If answer true
   const [isExit, setIsExit] = useState(false) // if exit command
-
+  const [mistake, setMistakes] = useState(null)
   const hints = useSelector((state) => state.achives.hints)
+  const health = useSelector((state) => state.health.health)
   const dispatch = useDispatch()
 
-  const refTerminalInput = React.createRef() // ref for 1 input terminalValue
-  const refTerminalInput1 = React.createRef() // ref for 2 input answer
-  const refTerminalInput2 = React.createRef()// ref for 3 input exit
+  const refTerminalInput = React.useRef() // ref for 1 input terminalValue
+  const refTerminalInput1 = React.useRef() // ref for 2 input answer
+  const refTerminalInput2 = React.useRef() // ref for 3 input exit
   useEffect(() => {
-    refTerminalInput.current.addEventListener('keyup', (event) => {
-      if (event.keyCode === 13) {
-        setNameInfo(terminalValue)
-        setTerminalValue('')
-        if (nameInfo && nameInfo.length && refTerminalInput1.current) {
-          refTerminalInput1.current.focus()
-        }
-      }
-    })
-    if (refTerminalInput1.current) {
-      refTerminalInput1.current.addEventListener('keyup', (event) => {
+    // Insert cursor in first input
+    if (refTerminalInput.current && nameInfo === null) {
+      setTimeout(() => {
+        refTerminalInput.current.focus()
+      }, 500)
+    }
+    //Watcher for Enter name input
+    if (refTerminalInput.current) {
+      refTerminalInput.current.addEventListener('keyup', (event) => {
         if (event.keyCode === 13) {
-          if (Number(answer) && Number(answer) !== 3) {
-            alert('Erorr')
-          } else {
-            setcomplete(true)
+          setNameInfo(terminalValue)
+          setTerminalValue('')
+
+          if (refTerminalInput1.current) {
+            refTerminalInput.current.readOnly = true
+            refTerminalInput1.current.focus()
           }
         }
       })
     }
+    //Watcher for Enter question input
+    if (refTerminalInput1.current) {
+      refTerminalInput1.current.addEventListener('keyup', (event) => {
+        if (event.keyCode === 13) {
+          if ( Number(answer) && Number(answer) === 3) {
+            setMistakes(
+              <div className="terminal-text complete-text">Correct answer</div>,
+            )
+          } else {
+            dispatch({
+              type: 'SET_MISTAKE',
+              payload: health+1
+            })
+            setMistakes(
+              <div className="terminal-text mistake-text">
+                You lost one sherlok
+              </div>,
+            )
+          }
+          setcomplete(true)
+          if (refTerminalInput2.current) {
+            refTerminalInput1.current.readOnly = true
+            refTerminalInput2.current.focus()
+          }
+        }
+      })
+    }
+    //Watcher for Enter exit input
     if (refTerminalInput2.current) {
       refTerminalInput2.current.addEventListener('keyup', (event) => {
-        if (event.keyCode === 13) {
+        if (event.keyCode === 13 && event.target.value === 'exit') {
           props.closeDialog()
         }
       })
     }
-    const unscrube =() => {
-      refTerminalInput.current.removeEventListener('keyup', () => {})
-      refTerminalInput1.current.removeEventListener('keyup', () => {})
-      refTerminalInput2.current.removeEventListener('keyup', () => {})
+    const unscrube = () => {
+      if (
+        refTerminalInput.current &&
+        refTerminalInput1.current &&
+        refTerminalInput2.current
+      ) {
+        refTerminalInput.current.removeEventListener('keyup', () => {})
+        refTerminalInput1.current.removeEventListener('keyup', () => {})
+        refTerminalInput2.current.removeEventListener('keyup', () => {})
+      }
     }
-    return  () => unscrube()
+    return () => unscrube()
   }, [
     nameInfo,
     refTerminalInput,
@@ -58,6 +93,8 @@ const TerminalComponent = (props) => {
     terminalValue,
     props,
     answer,
+    dispatch,
+    health
   ])
   const closeDialog = () => {
     props.closeDialog()
@@ -142,7 +179,7 @@ const TerminalComponent = (props) => {
           )}
           {complete && (
             <div>
-              <div className="terminal-text">Correct answer</div>
+              {mistake}
               <div className="terminal-text-info">
                 Please, press close button or enter command "exit" on the line
                 bellow and press "Enter"{' '}

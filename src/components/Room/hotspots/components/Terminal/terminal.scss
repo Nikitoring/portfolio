@@ -64,6 +64,12 @@
     .terminal-text {
       color: #ddd;
       font-size: $spacer-M;
+      &.mistake-text {
+        color: $accent
+      }
+      &.complete-text {
+        color: $success
+      }
     }
     .terminal-text-info {
       color: #ddd;
@@ -88,23 +94,30 @@
       .propmpt-tilda {
         color: #6d85a9;
       }
-      .propmpt-input {
-        appearance: none;
-        display: block;
-        width: 100%;
-        height: 1.2rem;
-        font-size: $spacer-M;
-        letter-spacing: 0;
-        padding: 0 0.5rem;
+    }
+    input[type='text'] {
+      border: none !important;
+      &:focus {
         border: none;
-        background: none;
-        color: #ddd;
-        :focus {
-          animation: pulseAttention .5s cubic-bezier(.215, .61, .355, 1) forwards infinite;
-
-        }
+        border-color: none;
+        border-radius: none;
       }
+    }
+    .propmpt-input {
+      appearance: none;
+      display: flex;
+      width: 100%;
+      font-size: $spacer-M;
+      letter-spacing: 0;
+      padding: 0 0.5rem;
+      border: none;
+      background: none;
+      color: #ddd;
+      &:focus {
+        border: none;
+        // animation: pulseAttention .5s cubic-bezier(.215, .61, .355, 1) forwards infinite;
 
+      }
     }
   }
 }

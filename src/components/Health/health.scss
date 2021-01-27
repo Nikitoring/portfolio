@@ -1,0 +1,27 @@
+@import '../../styles//variabbles';
+
+
+.healthBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  .sherlockOne {
+    content: '';
+    background: $primary;
+    mask-size: cover !important;
+    mask-repeat: no-repeat !important;
+    mask-position: center;
+    -webkit-mask-size: cover;
+    mask: url("../../assets/icons/sherlokHealth.svg");
+    -webkit-mask: url("../../assets/icons/sherlokHealth.svg");
+    width: 3rem;
+    height: 3rem;
+    &:not(:last-child) {
+      padding-right: 1rem;
+    }
+    &.isLost {
+      background: hsla(150, 5%, 65%, 0.4);
+    }
+  }
+}

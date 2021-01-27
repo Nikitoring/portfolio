@@ -22,12 +22,12 @@ const InputHot = (props) => {
       <input
         type="checkbox"
         className="input"
-        id={props.id}
+        id={`hotspot-${props.id}`}
         name="inputs"
         checked={props.isChecked}
         onChange={() => setChecked()}
       />
-      <label htmlFor={props.id}>
+      <label htmlFor={`hotspot-${props.id}`}>
         <div id={`b-${props.id}`} className="button">
           {props.label}
         </div>

@@ -427,6 +427,15 @@ $time:6s;
 
   }
 }
+.cv-link {
+  text-decoration: underline;
+  animation: fadeIn 3000ms infinite;
+  color: $text;
+  white-space: nowrap;
+  visibility: visible;
+  font-size: 3.4rem;
+  cursor: pointer;
+}
 
 @keyframes skill_1 {from {width:0%;}to {width:70%;}}
 @keyframes skill_2 {from {width:0%;}to {width:65%;}}

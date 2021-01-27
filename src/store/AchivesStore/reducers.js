@@ -9,7 +9,7 @@ const defaultState = {
       label: '',
       isChecked: false,
       isFound: false,
-      type: 'question',
+      type: 'information',
       content: {
         title: 'A cat. Hmmm...',
         body: 'Cats are lazy, but they are Svelte'
@@ -52,7 +52,8 @@ const defaultState = {
             id: 4,
             value: 'A cockroach'
           },
-        ]
+        ],
+        trueAnswer: 1
       }
     },
     {
@@ -81,7 +82,8 @@ const defaultState = {
             id: 4,
             value: 'How To Make Lollipops'
           },
-        ]
+        ],
+        trueAnswer: 1
       }
     },
     {
@@ -101,7 +103,7 @@ const defaultState = {
       label: '',
       isChecked: false,
       isFound: false,
-      type: 'drag-drop',
+      type: 'information',
       content: {
         title: '{} Css',
         body: 'Css / SASS'
