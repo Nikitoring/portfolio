@@ -2,7 +2,7 @@ import './content.scss'
 import React, { useEffect, useState } from 'react'
 import TerminalComponent from '../components/Terminal'
 import QuestionComponent from '../components/Question'
-import DragDropComponent from '../components/DragDrop'
+import DragDropComponent from '../components/DragDrop/index.js'
 import { useSelector, useDispatch } from 'react-redux'
 const HintContent = (props) => {
   const [stateDialog, setStateDialog] = useState(false)
