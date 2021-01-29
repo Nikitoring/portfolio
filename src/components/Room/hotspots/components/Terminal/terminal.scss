@@ -61,6 +61,7 @@
     margin-top: -1px;
     padding: 5px 9px;
     font-family: 'Ubuntu mono';
+    overflow: auto;
     .terminal-text {
       color: #ddd;
       font-size: $spacer-M;
@@ -95,16 +96,9 @@
         color: #6d85a9;
       }
     }
-    input[type='text'] {
-      border: none !important;
-      &:focus {
-        border: none;
-        border-color: none;
-        border-radius: none;
-      }
-    }
+
     .propmpt-input {
-      appearance: none;
+      outline: none;
       display: flex;
       width: 100%;
       font-size: $spacer-M;

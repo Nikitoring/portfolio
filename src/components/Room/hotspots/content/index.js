@@ -1,7 +1,8 @@
 import './content.scss'
 import React, { useEffect, useState } from 'react'
 import TerminalComponent from '../components/Terminal'
-import  QuestionComponent from '../components/Question'
+import QuestionComponent from '../components/Question'
+import DragDropComponent from '../components/DragDrop'
 import { useSelector, useDispatch } from 'react-redux'
 const HintContent = (props) => {
   const [stateDialog, setStateDialog] = useState(false)
@@ -46,6 +47,7 @@ const HintContent = (props) => {
       {props.type === 'terminal' && (
         <TerminalComponent stateDialog={stateDialog} id={props.id} closeDialog={closeDialog} />
       )}
+      {props.type === 'dragAndDrop' && <DragDropComponent id={props.id} content={props.content} closeDialog={closeDialog} />}
       {props.type === 'question' && <QuestionComponent id={props.id} content={props.content} closeDialog={closeDialog} />}
     </div>
   )

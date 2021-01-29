@@ -1,9 +1,10 @@
 import React from 'react'
 import { setReady } from '../../store/WindowStore/actions'
 import { setTimer, setHints } from '../../store/AchivesStore/actions'
+import {setMistake } from '../../store/HealthStore/actions'
 import {
   setAnimation,
-  setCurrentPageSection,
+  setCurrentPageSection
 } from '../../store/PagesStore/actions'
 import { connect } from 'react-redux'
 
@@ -22,6 +23,7 @@ const mapDispatchToProps = {
   setCurrentPageSection,
   setTimer,
   setHints,
+  setMistake
 }
 
 class CVComponent extends React.Component {
@@ -30,6 +32,10 @@ class CVComponent extends React.Component {
   }
   goToStart = () => {
     this.props.history.replace('/')
+    this.props.setMistake({
+      type: 'SET_MISTAKE',
+      payload: 0
+    })
   }
   render() {
     return (
@@ -41,9 +47,9 @@ class CVComponent extends React.Component {
           <div className="cv-subtitle">
             Your time: {this.props.timer ? this.props.timer : 'Ooops!'}
           </div>
-          <div className="cv-link" onClick={event => this.goToStart(event)}>
+          {!this.props.timer && <div className="cv-link" onClick={event => this.goToStart(event)}>
             Try again
-          </div>
+          </div>}
         </div>
         {this.props.timer && (
           <div className={`cv isActive`}>

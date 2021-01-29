@@ -16,20 +16,27 @@ const QuestionComponent = (props) => {
     return array
   }
 
-  const checkedVariant = useCallback((event) => {
+  const checkedVariant = useCallback(
+    (event) => {
       if (
         event.target.value &&
         Number(event.target.value) === content.trueAnswer
       ) {
         setChoice(<div className="rightChoice">Right choice!</div>)
       } else {
-        setChoice(<div className="badChoice">You missed!<div>You lost one sherlok</div></div>)
+        setChoice(
+          <div className="badChoice">
+            You missed!<div>You lost one sherlok</div>
+          </div>,
+        )
         dispatch({
           type: 'SET_MISTAKE',
-          payload: health+1
+          payload: health + 1,
         })
       }
-  },[content.trueAnswer,dispatch, health])
+    },
+    [content.trueAnswer, dispatch, health],
+  )
 
   useEffect(() => {
     if (content.variants && content.variants.length) {

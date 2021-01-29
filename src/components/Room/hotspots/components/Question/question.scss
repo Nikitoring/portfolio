@@ -6,16 +6,40 @@
   justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
-  font-size: $font-L;
-  padding: 0 5rem;
+
   .variant {
     width: 50%;
     padding: 1rem;
   }
+  /* xs (<=543px) */
+  @media (max-width: $xs-max) {
+    padding: 0;
+    font-size: $font-S;
+  }
 
+  /* sm (>=576 и <=767) */
+  @media (min-width: $sm) and (max-width: $sm-max) {
+    padding: 0;
+    font-size: 1rem;
+  }
+
+  /* md (>=768 и <=991) */
+  @media (min-width: $md) and (max-width: $md-max) {
+    padding: 0 5rem;
+    font-size: $font-L;
+  }
+  /* lg (>=992 и <=1199) */
+  @media (min-width: $lg) and (max-width: $lg-max) {
+    padding: 0 5rem;
+    font-size: $font-L;
+  }
+
+  /* xl (>=1200) */
+  @media (min-width: $xl) {
+    padding: 0 5rem;
+    font-size: $font-L;
+  }
   .labelVariant {
-    height: 100%;
-    min-width: 10rem;
     display: block;
     background: $light;
     border: 2px solid $secondary;
@@ -28,6 +52,34 @@
     &:hover {
       background: $background;
     }
+      /* xs (<=543px) */
+  @media (max-width: $xs-max) {
+    min-width: 0;
+    height: 100%;
+  }
+
+  /* sm (>=576 и <=767) */
+  @media (min-width: $sm) and (max-width: $sm-max) {
+    min-width: 5rem;
+    height: 100%;
+  }
+
+  /* md (>=768 и <=991) */
+  @media (min-width: $md) and (max-width: $md-max) {
+    min-width: 10rem;
+    height: 100%;
+  }
+  /* lg (>=992 и <=1199) */
+  @media (min-width: $lg) and (max-width: $lg-max) {
+    min-width: 10rem;
+    height: 100%;
+  }
+
+  /* xl (>=1200) */
+  @media (min-width: $xl) {
+    min-width: 10rem;
+    height: 100%;
+  }
   }
 }
 input[type='radio']:checked + label {
@@ -48,11 +100,35 @@ input[type='radio']:checked + label {
   top: 0;
   animation: fadeIn 1s;
 }
+.rightChoice, .badChoice {
+        /* xs (<=543px) */
+        @media (max-width: $xs-max) {
+          font-size: $font-XL;
+        }
+
+        /* sm (>=576 и <=767) */
+        @media (min-width: $sm) and (max-width: $sm-max) {
+          font-size: $font-XL;
+        }
+
+        /* md (>=768 и <=991) */
+        @media (min-width: $md) and (max-width: $md-max) {
+          font-size: $font-XL;
+        }
+        /* lg (>=992 и <=1199) */
+        @media (min-width: $lg) and (max-width: $lg-max) {
+          font-size: $font-heading_1;
+        }
+
+        /* xl (>=1200) */
+        @media (min-width: $xl) {
+          font-size: $font-heading_0;
+        }
+}
 .rightChoice {
-  font-size: $font-heading_0;
+
   color: $success;
 }
 .badChoice {
-  font-size: $font-heading_0;
   color:$accent;
 }

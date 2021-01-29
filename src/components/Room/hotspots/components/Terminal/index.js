@@ -20,7 +20,7 @@ const TerminalComponent = (props) => {
     // Insert cursor in first input
     if (refTerminalInput.current && nameInfo === null) {
       setTimeout(() => {
-        refTerminalInput.current.focus()
+        if (refTerminalInput.current && refTerminalInput.current.focus()) refTerminalInput.current.focus()
       }, 500)
     }
     //Watcher for Enter name input
@@ -155,8 +155,8 @@ const TerminalComponent = (props) => {
               <div className="terminal-text-question">
                 Who invented this OS?
               </div>
-              <div className="terminal-text-variant">1 - Bill Gaits </div>
-              <div className="terminal-text-variant">2 - Eminem </div>
+              <div className="terminal-text-variant">1 - Bill Gates </div>
+              <div className="terminal-text-variant">2 - Justin Bieber </div>
               <div className="terminal-text-variant">3 - Linus Torvalds </div>
               <div className="terminal-text-variant">4 - Vladimir Putin </div>
               <div className="terminal-text-info">

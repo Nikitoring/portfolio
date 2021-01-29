@@ -9,10 +9,29 @@ const defaultState = {
       label: '',
       isChecked: false,
       isFound: false,
-      type: 'information',
+      type: 'question',
       content: {
         title: 'A cat. Hmmm...',
-        body: 'Cats are lazy, but they are Svelte'
+        body: 'The cat is...',
+        variants: [
+          {
+            id: 1,
+            value: 'lazy'
+          },
+          {
+            id: 2,
+            value: 'crazy'
+          },
+          {
+            id: 3,
+            value: 'hungry'
+          },
+          {
+            id: 4,
+            value: 'svelte'
+          },
+        ],
+        trueAnswer: 4
       }
     },
     {
@@ -103,10 +122,10 @@ const defaultState = {
       label: '',
       isChecked: false,
       isFound: false,
-      type: 'information',
+      type: 'dragAndDrop',
       content: {
         title: '{} Css',
-        body: 'Css / SASS'
+        body: 'What is it?'
       }
     },
     {

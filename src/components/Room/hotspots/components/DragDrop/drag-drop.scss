@@ -1,0 +1,85 @@
+@import '../../../../../styles/variabbles';
+
+.draDropContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  min-height: 20rem;
+  max-height: 50rem;
+  border: 1rem solid $secondary;
+}
+.draDropLayout {
+  margin: 0 .8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 67%;
+  min-height: 30rem;
+  max-height: 50rem;
+  border: .5rem solid $accent;
+  font-size: $font-L;
+  text-align: center;
+  >div {
+    width: 100%;
+  }
+  .dragContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 27rem;
+  }
+  .dragContainer {
+    display: flex;
+    flex-direction: row;
+
+    &Header {
+      width: 100%;
+      height: 5rem;
+      border: 0.2rem solid $accent;
+    }
+    &Footer {
+      width: 100%;
+      height: 5rem;
+      border: 0.2rem solid $accent;
+    }
+    &Main {
+      width: 60%;
+      height: 27rem;
+      border: 0.2rem solid $accent;
+    }
+    &Left {
+      width: 20%;
+      height: 27rem;
+      border: 0.2rem solid $accent;
+    }
+    &Right {
+      width: 20%;
+      height: 27rem;
+      border: 0.2rem solid $accent;
+    }
+  }
+}
+
+.dragBox {
+  background-color: $success;
+  display: block;
+  width: 20rem;
+  margin: .5rem;
+  min-height: 3rem;
+  max-height: 50rem;
+  position: relative;
+  cursor: pointer;
+  font-size: $font-L;
+  text-align: center;
+}
+.dropItem {
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid blue;
+  cursor: pointer;
+}
