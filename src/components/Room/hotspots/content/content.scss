@@ -24,7 +24,7 @@
     @include transform(scale(1, 1));
   }
   & > div {
-    width: 50vw;
+
     min-height: 50vh;
     position: absolute;
     top: 50%;
@@ -38,6 +38,31 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    /* xs (<=543px) */
+    @media (max-width: $xs-max) {
+      width: 80vw;
+    }
+
+    /* sm (>=576 и <=767) */
+    @media (min-width: $sm) and (max-width: $sm-max) {
+      width: 80vw;
+    }
+
+    /* md (>=768 и <=991) */
+    @media (min-width: $md) and (max-width: $md-max) {
+      width: 50vw;
+    }
+    /* lg (>=992 и <=1199) */
+    @media (min-width: $lg) and (max-width: $lg-max) {
+      width: 50vw;
+    }
+
+    /* xl (>=1200) */
+    @media (min-width: $xl) {
+      width: 50vw;
+    }
+
     .modalContent {
       width: 100%;
       display: flex;

@@ -5,13 +5,35 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 30%;
+
   min-height: 20rem;
   max-height: 50rem;
   border: 1rem solid $secondary;
+  /* xs (<=543px) */
+  @media (max-width: $xs-max) {
+    width: 25%;
+  }
+  /* sm (>=576 и <=767) */
+  @media (min-width: $sm) and (max-width: $sm-max) {
+    width: 25%;
+  }
+
+  /* md (>=768 и <=991) */
+  @media (min-width: $md) and (max-width: $md-max) {
+    width: 25%;
+  }
+  /* lg (>=992 и <=1199) */
+  @media (min-width: $lg) and (max-width: $lg-max) {
+    width: 30%;
+  }
+
+  /* xl (>=1200) */
+  @media (min-width: $xl) {
+    width: 30%;
+  }
 }
 .draDropLayout {
-  margin: 0 .8rem;
+  margin: 0 0.8rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,10 +41,10 @@
   width: 67%;
   min-height: 30rem;
   max-height: 50rem;
-  border: .5rem solid $accent;
+  border: 0.5rem solid $accent;
   font-size: $font-L;
   text-align: center;
-  >div {
+  > div {
     width: 100%;
   }
   .dragContent {
@@ -68,14 +90,42 @@
 .dragBox {
   background-color: $success;
   display: block;
-  width: 20rem;
-  margin: .5rem;
+
+  margin: 0.5rem;
   min-height: 3rem;
   max-height: 50rem;
   position: relative;
   cursor: pointer;
-  font-size: $font-L;
+
   text-align: center;
+      /* xs (<=543px) */
+      @media (max-width: $xs-max) {
+        width: 5rem;
+        font-size: 1rem;
+      }
+
+      /* sm (>=576 и <=767) */
+      @media (min-width: $sm) and (max-width: $sm-max) {
+        width: 10rem;
+        font-size: $font-S;
+      }
+
+      /* md (>=768 и <=991) */
+      @media (min-width: $md) and (max-width: $md-max) {
+        width: 20rem;
+        font-size: $font-L;
+      }
+      /* lg (>=992 и <=1199) */
+      @media (min-width: $lg) and (max-width: $lg-max) {
+        width: 20rem;
+        font-size: $font-L;
+      }
+
+      /* xl (>=1200) */
+      @media (min-width: $xl) {
+        width: 20rem;
+        font-size: $font-L;
+      }
 }
 .dropItem {
   margin: 20px;
