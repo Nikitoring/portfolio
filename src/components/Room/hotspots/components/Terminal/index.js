@@ -135,7 +135,7 @@ const TerminalComponent = (props) => {
         <section className="terminal-body">
           <div className="terminal-text">Welcome to Ubuntu</div>
           <div className="terminal-text-info">
-            Please click on the line bellow, enter your name and press Enter
+            Please click on the line below, enter your name and press Enter
           </div>
           <div className="terminal-propmpt">
             <span className="propmpt-user">user@ubuntu:</span>
@@ -160,7 +160,7 @@ const TerminalComponent = (props) => {
               <div className="terminal-text-variant">3 - Linus Torvalds </div>
               <div className="terminal-text-variant">4 - Vladimir Putin </div>
               <div className="terminal-text-info">
-                Please, enter the correct number bellow and press "Enter"{' '}
+                Please, enter the correct number below and press "Enter"{' '}
               </div>
               <div className="terminal-propmpt">
                 <span className="propmpt-user">user@ubuntu:</span>
@@ -182,7 +182,7 @@ const TerminalComponent = (props) => {
               {mistake}
               <div className="terminal-text-info">
                 Please, press close button or enter command "exit" on the line
-                bellow and press "Enter"{' '}
+                below and press "Enter"{' '}
               </div>
               <div className="terminal-propmpt">
                 <span className="propmpt-user">user@ubuntu:</span>

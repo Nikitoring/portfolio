@@ -83,7 +83,7 @@ const defaultState = {
       type: 'question',
       content: {
         title: 'HTML',
-        body: 'What does he know about HTML?',
+        body: 'What does it mean?',
         variants: [
           {
             id: 1,
@@ -124,8 +124,8 @@ const defaultState = {
       isFound: false,
       type: 'dragAndDrop',
       content: {
-        title: '{} Css',
-        body: 'What is it?'
+        title: 'Css',
+        body: 'Arrange the blocks in the correct order to get a layout'
       }
     },
     {
