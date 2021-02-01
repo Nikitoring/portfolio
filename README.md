@@ -1,8 +1,8 @@
 # Portfolio
 
-I'm frontend developer. This my portfolio.
+I'm a frontend developer. This is my portfolio -
 React Appication which tells you about my skills.
-If you will reach the end.
+If you reach the end.
 Project page in github pages: https://nikitoring.github.io/portfolio
 
 ## Modules used:
