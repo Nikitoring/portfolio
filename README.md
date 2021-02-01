@@ -1,6 +1,5 @@
-# React App Portfolio
+# Portfolio
 
-# Overview
 I'm frontend developer. This my portfolio.
 React Appication which tells you about my skills.
 If you will reach the end.
