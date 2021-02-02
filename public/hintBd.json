@@ -1,0 +1,145 @@
+{
+    "hints": [{
+            "id": 1,
+            "isChecked": false,
+            "isFound": false,
+            "type": "question",
+            "content": {
+                "title": "A cat. Hmmm...",
+                "body": "The cat is...",
+                "variants": [{
+                        "id": 1,
+                        "value": "lazy"
+                    },
+                    {
+                        "id": 2,
+                        "value": "crazy"
+                    },
+                    {
+                        "id": 3,
+                        "value": "hungry"
+                    },
+                    {
+                        "id": 4,
+                        "value": "svelte"
+                    },
+                ],
+                "trueAnswer": 4
+            }
+        },
+        {
+            "id": 2,
+            "isChecked": false,
+            "isFound": false,
+            "type": "question",
+            "content": {
+                "title": "A beautiful view from the window...",
+                "body": "It's a hint! He can work with",
+                "variants": [{
+                        "id": 1,
+                        "value": "view js"
+                    },
+                    {
+                        "id": 2,
+                        "value": "vue js"
+                    },
+                    {
+                        "id": 3,
+                        "value": "vueue js"
+                    },
+                    {
+                        "id": 4,
+                        "value": "veu js"
+                    },
+                ],
+                "trueAnswer": 2
+            }
+        },
+        {
+            "id": 3,
+            "isChecked": false,
+            "isFound": false,
+            "type": "question",
+            "content": {
+                "title": "What's in the cup?",
+                "variants": [{
+                        "id": 1,
+                        "value": "Coffee"
+                    },
+                    {
+                        "id": 2,
+                        "value": "Vodka"
+                    },
+                    {
+                        "id": 3,
+                        "value": "Lemonade"
+                    },
+                    {
+                        "id": 4,
+                        "value": "A cockroach"
+                    },
+                ],
+                "trueAnswer": 1
+            }
+        },
+        {
+            "id": 4,
+            "isChecked": false,
+            "isFound": false,
+            "type": "question",
+            "content": {
+                "title": "HTML",
+                "body": "What does it mean?",
+                "variants": [{
+                        "id": 1,
+                        "value": "HyperText Markup Language"
+                    },
+                    {
+                        "id": 2,
+                        "value": "Harrypotter Took My Letters"
+                    },
+                    {
+                        "id": 3,
+                        "value": "Hot Tomatos May Love"
+                    },
+                    {
+                        "id": 4,
+                        "value": "How To Make Lollipops"
+                    },
+                ],
+                "trueAnswer": 1
+            }
+        },
+        {
+            "id": 5,
+            "isChecked": false,
+            "isFound": false,
+            "type": "terminal",
+            "terminalValue": "",
+            "content": {
+                "title": "Visual Studio Code",
+                "body": "Programming language is JavaScript. Operating system is Linux"
+            }
+        },
+        {
+            "id": 6,
+            "isChecked": false,
+            "isFound": false,
+            "type": "dragAndDrop",
+            "content": {
+                "title": "Css",
+                "body": "Arrange the blocks in the correct order to get a layout"
+            }
+        },
+        {
+            "id": 7,
+            "isChecked": false,
+            "isFound": false,
+            "type": "information",
+            "content": {
+                "title": "A plant",
+                "body": "The plant is growing up"
+            }
+        }
+    ]
+}
