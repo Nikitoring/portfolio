@@ -39,7 +39,7 @@ const QuestionComponent = (props) => {
   )
 
   useEffect(() => {
-    if (content.variants && content.variants.length) {
+    if (content.variants && content.variants.length && !choice) {
       let shuffleArray = shuffleVariants(content.variants)
 
       if (shuffleArray && shuffleArray.length) {
@@ -64,7 +64,7 @@ const QuestionComponent = (props) => {
         )
       }
     }
-  }, [content, setVariants, checkedVariant])
+  }, [content, setVariants, checkedVariant,choice])
 
   return (
     <div>

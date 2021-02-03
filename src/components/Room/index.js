@@ -50,7 +50,7 @@ export default function RoomComponent(props) {
         })
         setTimeout(()=>{
           props.history.push('/complete')}
-        ,3000)
+        ,2000)
       }
   },[dispatch,props.history,hints, health])
   const startRoom = (event) => {

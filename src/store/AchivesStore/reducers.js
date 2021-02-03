@@ -39,10 +39,29 @@ const defaultState = {
       label: '',
       isChecked: false,
       isFound: false,
-      type: 'information',
+      type: 'question',
       content: {
-        title: "I see a beautiful view from the window",
-        body: "View... View... Vue"
+        title: "A beautiful view from the window...",
+        body: "He can work with",
+        variants: [
+          {
+            id: 1,
+            value: 'view js'
+          },
+          {
+            id: 2,
+            value: 'vju js'
+          },
+          {
+            id: 3,
+            value: 'vue js'
+          },
+          {
+            id: 4,
+            value: 'vueue js'
+          },
+        ],
+        trueAnswer: 3
       }
     },
     {
