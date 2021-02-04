@@ -37,33 +37,6 @@ const TerminalComponent = (props) => {
         }
       })
     }
-    //Watcher for Enter question input
-    if (refTerminalInput1.current) {
-      refTerminalInput1.current.addEventListener('keyup', (event) => {
-        if (event.keyCode === 13) {
-          if ( Number(answer) && Number(answer) === 3) {
-            setMistakes(
-              <div className="terminal-text complete-text">Correct answer</div>,
-            )
-          } else {
-            dispatch({
-              type: 'SET_MISTAKE',
-              payload: health+1
-            })
-            setMistakes(
-              <div className="terminal-text mistake-text">
-                You lost one sherlok
-              </div>,
-            )
-          }
-          setcomplete(true)
-          if (refTerminalInput2.current) {
-            refTerminalInput1.current.readOnly = true
-            refTerminalInput2.current.focus()
-          }
-        }
-      })
-    }
     //Watcher for Enter exit input
     if (refTerminalInput2.current) {
       refTerminalInput2.current.addEventListener('keyup', (event) => {
@@ -75,11 +48,9 @@ const TerminalComponent = (props) => {
     const unscrube = () => {
       if (
         refTerminalInput.current &&
-        refTerminalInput1.current &&
         refTerminalInput2.current
       ) {
         refTerminalInput.current.removeEventListener('keyup', () => {})
-        refTerminalInput1.current.removeEventListener('keyup', () => {})
         refTerminalInput2.current.removeEventListener('keyup', () => {})
       }
     }
@@ -87,7 +58,6 @@ const TerminalComponent = (props) => {
   }, [
     nameInfo,
     refTerminalInput,
-    refTerminalInput1,
     refTerminalInput2,
     isExit,
     terminalValue,
@@ -111,8 +81,30 @@ const TerminalComponent = (props) => {
   const setTerminal = (event) => {
     setTerminalValue(event.target.value)
   }
-  const setAnswerFunc = (event) => {
-    setAnswer(event.target.value)
+  const setPressButton =(event) => {
+    if (event.keyCode === 13 || event.key === 'Enter') {
+      if ( (Number(answer) && Number(answer) === 3) || answer === '3') {
+        setMistakes(
+          <div className="terminal-text complete-text">Correct answer</div>,
+        )
+
+      } else if (answer !== '' || answer !==null) {
+        setMistakes(
+          <div className="terminal-text mistake-text">
+            You lost one sherlok
+          </div>,
+        )
+        dispatch({
+          type: 'SET_MISTAKE',
+          payload: health+1
+        })
+      }
+      setcomplete(true)
+      if (refTerminalInput2.current) {
+        refTerminalInput1.current.readOnly = true
+        refTerminalInput2.current.focus()
+      }
+    }
   }
   const setClose = (event) => {
     if (event.target.value === 'exit') {
@@ -172,7 +164,8 @@ const TerminalComponent = (props) => {
                   className="propmpt-input"
                   value={answer}
                   type="text"
-                  onChange={(event) => setAnswerFunc(event)}
+                  onChange={(event) => setAnswer(event.target.value)}
+                  onKeyDown={(event)=> setPressButton(event)}
                 ></input>
               </div>
             </div>
